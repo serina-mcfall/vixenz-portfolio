@@ -1,0 +1,90 @@
+---
+import '../styles/global.css';
+import { site } from '../lib/site';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const { title, description = site.tagline, ogImage = '/og-default.png' } = Astro.props;
+
+const fullTitle =
+  title === site.name
+    ? `${site.name} — Junior Developer · Accessibility-First`
+    : `${title} — ${site.name}`;
+
+const canonical = new URL(Astro.url.pathname, site.url);
+const ogImageUrl = new URL(ogImage, site.url);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={site.name} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={`${site.name} — ${site.tagline}`} />
+
+    <!-- JSON-LD Person schema — spec §8: real-name discoverability when domain doesn't carry it -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: site.name,
+      alternateName: 'Vixenz',
+      url: site.url,
+      email: `mailto:${site.email}`,
+      sameAs: [site.github, site.linkedin],
+      jobTitle: 'Junior Developer',
+      knowsAbout: ['Accessibility', 'React', 'TypeScript', 'Express', 'Knex', 'SQL'],
+    })} />
+
+    <!-- Fonts: Lexend variable + JetBrains Mono — spec §6.2 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <slot name="header" />
+    <main id="main">
+      <slot />
+    </main>
+    <slot name="footer" />
+
+    <style>
+      .skip-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0.5rem 1rem;
+        background: var(--lantern);
+        color: var(--midnight);
+        font-weight: 600;
+        text-decoration: none;
+        border: none;
+        transform: translateY(-110%);
+        transition: transform 120ms ease;
+        z-index: 100;
+      }
+      .skip-link:focus-visible {
+        transform: translateY(0);
+      }
+      main {
+        flex: 1;
+      }
+    </style>
+  </body>
+</html>
