@@ -1,0 +1,119 @@
+/* src/styles/global.css — base + dyslexia-friendly typesetting
+ *
+ * Reference: vixenz.dev design spec §6.3, §9
+ *
+ * Load order matters: tokens.css first (defines the variables this file uses),
+ * then this file (uses them), then component-scoped styles (override as needed).
+ */
+
+@import url('./tokens.css');
+
+/* ── reset ──────────────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+html, body { height: 100%; }
+img, picture, svg { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; color: inherit; }
+
+/* ── base typography ────────────────────────────────────────────── */
+
+html {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 100%;
+  line-height: 1.6;             /* spec §6.3 — dyslexia-friendly body */
+  letter-spacing: 0.005em;       /* +0.5% tracking */
+  background: var(--midnight);
+  color: var(--moonlight);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ── headings — Lexend variable ─────────────────────────────────── */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--moonlight);
+}
+
+h1 {
+  font-size: var(--text-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+h2 { font-size: var(--text-h2); }
+h3 { font-size: var(--text-h3); }
+
+/* ── paragraphs — capped reading width ──────────────────────────── */
+
+p {
+  max-width: var(--reading-width);   /* 66ch — dyslexia line-length (spec §6.3) */
+  line-height: 1.65;
+}
+
+/* ── links — colour + weight + dotted underline (spec §6.3) ─────── */
+/* NEVER plain underline — underlines clip descenders and crowd dyslexic readers. */
+
+a {
+  color: var(--lotus);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+  padding-bottom: 1px;
+  transition: color 120ms ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--moonlight);
+}
+
+/* ── focus — visible on every interactive element ───────────────── */
+
+:focus-visible {
+  outline: 2px solid var(--lantern);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── code & mono — tight scope per spec §6.2 ────────────────────── */
+
+code, pre, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+code {
+  color: var(--magnolia);
+  background: var(--tile-border);
+  padding: 0.125em 0.375em;
+  border-radius: 3px;
+}
+
+/* ── reduced motion (spec §9, §6.4) ─────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── selection ──────────────────────────────────────────────────── */
+
+::selection {
+  background: var(--magnolia);
+  color: var(--midnight);
+}
