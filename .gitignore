@@ -22,3 +22,16 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# editor / assistant local state
+.vscode/
+.claude/
+.superpowers/
+
+# environment (extra)
+.env.development
+
+# test artifacts
+test-results/
+playwright-report/
+playwright/.cache/
