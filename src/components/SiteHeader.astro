@@ -1,0 +1,88 @@
+---
+import { site, nav } from '../lib/site';
+
+const path = Astro.url.pathname;
+---
+<header>
+  <div class="bar">
+    <a href="/" class="brand">{site.brand}</a>
+    <nav aria-label="Primary">
+      <ul>
+        {nav.map(item => {
+          const current =
+            path === item.href ||
+            (item.href !== '/' && path.startsWith(item.href));
+          return (
+            <li>
+              <a
+                href={item.href}
+                aria-current={current ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    padding: 1.5rem var(--gutter) 2rem;
+    border-bottom: 1px solid var(--tile-border);
+  }
+
+  .bar {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    font-family: var(--font-mono);
+    color: var(--lantern);
+    font-weight: 500;
+    font-size: var(--text-ui);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border: none;            /* override global.css dotted link border */
+    margin-right: auto;      /* pushes the nav to the right */
+  }
+  .brand:hover,
+  .brand:focus-visible {
+    color: var(--moonlight);
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    font-family: var(--font-mono);
+    font-size: var(--text-ui);
+    color: var(--mist);
+    text-decoration: none;
+    border: none;             /* override the global dotted underline */
+    letter-spacing: 0.04em;
+    padding-bottom: 2px;
+  }
+
+  /* the current-page link gets the moonlight colour + magnolia underline */
+  nav a[aria-current='page'] {
+    color: var(--moonlight);
+    border-bottom: 1px solid var(--magnolia);
+  }
+
+  nav a:hover,
+  nav a:focus-visible {
+    color: var(--moonlight);
+  }
+</style>
