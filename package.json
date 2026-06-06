@@ -9,10 +9,17 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro", 
+    "test": "playwright test",
+    "test:a11y": "playwright test --grep @a11y"
   },
   "dependencies": {
     "@astrojs/mdx": "^6.0.2",
     "astro": "^6.4.4"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.2"
   }
 }
