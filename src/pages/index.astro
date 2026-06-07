@@ -70,15 +70,14 @@ const nowItems = [
 </Page>
 
 <style>
-  /* ── hero ──────────────────────────────────────────────────── */
   .hero { margin-bottom: 3rem; }
   .hero h1 { margin-bottom: 1rem; }
-  .hero .dot { color: var(--magnolia); }   /* the period after McFall */
+  .hero .dot { color: var(--magnolia); }
 
   .tagline {
     font-size: var(--text-lede);
     color: var(--mist);
-    max-width: 36rem;                /* tighter than global p's 66ch — feels right for hero */
+    max-width: 36rem;
     line-height: 1.55;
   }
 
@@ -90,15 +89,12 @@ const nowItems = [
     margin-top: 1.25rem;
   }
 
-  /* ── work grid ─────────────────────────────────────────────── */
-  /* auto-fit means tiles wrap responsively without a media query */
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     gap: 1rem;
   }
 
-  /* visually hidden, screen-reader readable — the work-heading h2 */
   .sr-only {
     position: absolute;
     width: 1px;
@@ -110,7 +106,6 @@ const nowItems = [
     border: 0;
   }
 
-  /* ── contact ───────────────────────────────────────────────── */
   .contact { margin-top: 3rem; }
 
   .contact-h {

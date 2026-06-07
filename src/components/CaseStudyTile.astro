@@ -19,14 +19,14 @@ const { href, ord, title, blurb, featured = false } = Astro.props;
 
 <style>
   .tile {
-    display: block;                          /* whole <a> is the tap target */
+    display: block;                         
     background: var(--deep-sky);
     border: 1px solid var(--tile-border);
     border-radius: 10px;
     padding: 1.25rem 1.5rem;
     text-decoration: none;
     color: inherit;
-    border-bottom: 1px solid var(--tile-border);  /* override global a's dotted underline */
+    border-bottom: 1px solid var(--tile-border);  
     transition: border-color 120ms ease, transform 120ms ease;
   }
 
@@ -61,10 +61,10 @@ const { href, ord, title, blurb, featured = false } = Astro.props;
     color: var(--mist);
     font-size: 0.85rem;
     line-height: 1.55;
-    max-width: none;                         /* override global p's 66ch cap */
+    max-width: none;                        
   }
 
-  /* bonus: featured tiles get magnolia label colour to match the left border */
+  
   .tile.featured .ord {
     color: var(--magnolia);
   }
