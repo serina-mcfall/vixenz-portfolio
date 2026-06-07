@@ -1,0 +1,74 @@
+---
+interface Item {
+  label: string;
+  text: string;
+  href?: string;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+
+---
+
+<section aria-labelledby="now-heading" class="strip">
+  <h2 id="now-heading" class="heading">Currently</h2>
+  <ul>
+    {items.map(item => (
+      <li>
+        <span class="label">{item.label}</span>
+        <span class="text">
+          {item.href ? <a href={item.href}>{item.text}</a> : item.text}
+        </span>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .strip {
+    border-top: 1px solid var(--tile-border);
+    border-bottom: 1px solid var(--tile-border);
+    padding: 1.5rem 0;
+    margin: 3rem 0;
+  }
+
+  /* heading reads "Currently" — mono small label, lotus colour */
+  .heading {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--lotus);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+
+  ul {
+    list-style: none;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  li {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+  }
+
+  /* fixed min-width keeps labels aligned on the left column */
+  .label {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--mist);
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+    min-width: 7rem;
+  }
+
+  .text {
+    color: var(--moonlight);
+  }
+</style>
