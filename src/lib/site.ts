@@ -1,8 +1,3 @@
-/* src/lib/site.ts — single source of truth for site-wide identity and nav.
- *
- * Every component pulls from these objects. Edit here, every page updates.
- */
-
 export const site = {
   url: 'https://vixenz.dev',
   name: 'Serina McFall',

@@ -30,7 +30,6 @@ const ogImageUrl = new URL(ogImage, site.url);
     <meta name="author" content={site.name} />
     <link rel="canonical" href={canonical} />
 
-    <!-- Open Graph -->
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
@@ -38,7 +37,6 @@ const ogImageUrl = new URL(ogImage, site.url);
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:image:alt" content={`${site.name} — ${site.tagline}`} />
 
-    <!-- JSON-LD Person schema — spec §8: real-name discoverability when domain doesn't carry it -->
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Person',
@@ -51,7 +49,6 @@ const ogImageUrl = new URL(ogImage, site.url);
       knowsAbout: ['Accessibility', 'React', 'TypeScript', 'Express', 'Knex', 'SQL'],
     })} />
 
-    <!-- Fonts: Lexend variable + JetBrains Mono — spec §6.2 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
