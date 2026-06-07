@@ -11,7 +11,7 @@ const path = Astro.url.pathname;
         {nav.map(item => {
           const current =
             path === item.href ||
-            (item.href !== '/' && path.startsWith(item.href));
+            (item.href.length > 1 && path.startsWith(item.href));
           return (
             <li>
               <a
