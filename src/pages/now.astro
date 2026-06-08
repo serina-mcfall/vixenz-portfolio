@@ -1,0 +1,72 @@
+---
+import Page from '../layouts/Page.astro'
+
+const lastUpdated = '2026-06-08'
+---
+
+<Page title="Now — Serina McFall" description="What's active right now, what comes next, what's still on the horizon.">
+  <article class="now">
+    <header class="opener">
+      <h1>Now, next, and later.</h1>
+      <p class="updated">Last updated <time datetime={lastUpdated}>{lastUpdated}</time></p>
+    </header>
+
+        <section>
+      <h2>Now</h2>
+      <p>vixenz.dev, this site, is my first Astro project and is in active build. Alongside it, Avalúne, my Next.js worldbuilding site, where I'm working on the canon reader and the database layer.</p>
+    </section>
+
+    <section>
+      <h2>Next</h2>
+      <p>Atlas: turning my Dev Academy art-gallery project into a living visual concept library, designed accessibility-first from the brief. The case study writeups for /work that go with it. The MTG Project's first phase: getting the foundation code shipped from the design docs. Avalúne's Phase 3 backend.</p>
+    </section>
+
+    <section>
+      <h2>Later</h2>
+      <p>The Learning Companion Project, an AI-assisted study tool built on agent and worker patterns I'm currently learning. And the role this site is meant to find me.</p>
+    </section>
+  </article>
+</Page>
+
+<style>
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--lotus);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .opener h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    margin-bottom: 1rem;
+  }
+
+  .lede {
+    font-size: var(--text-lede);
+    color: var(--mist);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 36rem;
+  }
+
+  .now section {
+    margin-bottom: 2.5rem;
+  }
+
+  .now h2 {
+    font-size: var(--text-h3);
+    margin-bottom: 0.75rem;
+    color: var(--lantern);
+  }
+
+  .updated {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--mist);
+    margin-top: 0.5rem;
+  }
+
+</style>
