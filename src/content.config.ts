@@ -23,4 +23,17 @@ const blog = defineCollection({
   }),
 })
 
-export const collections = { lab, blog }
+const work = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/work' }),
+  schema: z.object({
+    title: z.string(),
+    ord: z.string(),
+    summary: z.string(),
+    status: z.enum(['draft', 'live']),
+    repo: z.string().url().optional(),
+    live: z.string().url().optional(),
+    updated: z.string(),
+  }),
+})
+
+export const collections = { lab, blog, work }

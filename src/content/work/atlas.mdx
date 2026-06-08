@@ -1,0 +1,56 @@
+---
+title: 'Atlas — a visual concept library'
+ord: 'I'
+summary: 'I took my bootcamp art-gallery, gave it a real purpose, and designed it accessibility-first from the brief. Here is what changed, why, and what I would do differently next time.'
+status: 'draft'
+updated: '2026-06-08'
+---
+
+## The brief
+
+Art-gallery was a bootcamp project. Vite + React + TypeScript client, Express + TypeScript server, a static data file of artworks. I built it to spec, ran a WAVE audit on it after the fact, fixed what the audit found. Then I let it sit. It had no purpose beyond demonstrating that I could wire up React Query.
+
+Atlas is what art-gallery becomes when it grows up. Same shape — a gallery of cards, a detail page per item — but the items are concepts I'm learning, the cards are diagrams I've drawn, and accessibility is the brief, not the audit-after-the-fact.
+
+## Why Astro
+
+I considered three stacks for Atlas: React (familiar from Dev Academy), Express + a template engine (the by-hand workflow I've been learning), and Astro (new to me).
+
+React lost on shipping cost — a 300KB bundle for a concept library is wrong. Express + EJS would have worked but I'd be hand-rolling routing, frontmatter parsing, and content typing. Astro gave me the right primitives out of the box: file-based routing, typed content collections, MDX support, and almost zero client JavaScript by default.
+
+The deciding factor was accessibility. Astro's real-page-load model means focus management just works for screen reader users — six structural a11y wins I didn't have to engineer.
+
+## Accessibility from the brief
+
+In my bootcamp art-gallery project, accessibility was an audit I ran at the end. For Atlas, it's the brief.
+
+Picking Astro committed me to six structural accessibility wins I'd otherwise have to engineer myself:
+
+1. Real page loads instead of client-side routing — focus management works because the browser does it.
+2. Near-zero client JavaScript — content reaches assistive tech immediately, not after a 300KB bundle parses.
+3. No `useEffect` DOM mutations — what renders is what announces.
+4. `<head>` is first-class — page titles set declaratively, no race conditions.
+5. No `aria-hidden` SPA tricks needed to manage modals or routes.
+6. Native `<form>` submission works — the most accessible form pattern.
+
+Designed in. Not bolted on.
+
+## The data layer (coming)
+
+I am at my happiest in the schema layer. There is something about getting the model right at the start that makes everything downstream easier.
+
+Atlas's data layer is being written by hand: Express + Knex + SQLite. No ORM magic. The reason is the same reason I started the Avalúne Compendium: Supabase hides the relational workflow from me, and I want to learn it by wiring it up.
+
+The schema for Atlas is small — concepts, topics, tags, related-concepts edges. Each table earns its place by the drawer test: one row per instance, looked up one at a time, linked to from other records. Things that fail the test stay as flat fields.
+
+## What's next
+
+Atlas is still in design as I publish this. The build runs in five phases:
+
+1. **Fork + rename.** Original art-gallery stays untouched as the bootcamp record. New atlas repo clones from it — git lineage preserved.
+2. **Rename Artwork → Concept.** Semantic refactor of the model, routes, components, tests. Tests stay green throughout.
+3. **Migrate static `art.ts` → SQLite + Knex.** The data-layer transition described above.
+4. **UI redesign.** Moonlit Library palette, Lexend type, new IA — visually unrelated to the bootcamp original.
+5. **Seed concept sheets.** Four to six to start: React components, how a database query travels, what `aria-modal` actually does, Knex migrations vs seeds.
+
+The case study you're reading right now is being written before all of that ships. It's the design phase made visible — what I'm building toward, why I'm building it that way, and where I'll be when it lands.
