@@ -1,0 +1,127 @@
+---
+import Page from '../layouts/Page.astro'
+import {site} from '../lib/site'
+---
+
+<Page title="About — Serina McFall" description="Auckland-based junior developer, accessibility-first, neurospicy. About me, my skills, and what I'm looking for.">
+  <article class="about">
+    <header class="opener">
+      <p class="label">ABOUT</p>
+      <h1>
+        Junior developer. Accessibility-first. Neurospicy. I build for everyone — because I think differently too.
+      </h1>
+      <p class="lede">
+        I think in patterns and pictures, so most of my projects start with design docs broken into phases — usually with a Mermaid diagram or flow chart. Accessibility isn't a separate practice; it's the brief, because building for how I read tends to mean building better for how everyone reads.
+      </p>
+    </header>
+
+    <section>
+      <h2>What I work with</h2>
+      <dl class="skills">
+        <div>
+          <dt>Frontend</dt>
+          <dd>React, JavaScript, TypeScript, Astro, CSS, semantic HTML, WCAG 2.2, W3C APG patterns</dd>
+        </div>
+        <div>
+          <dt>Backend</dt>
+          <dd>Express, REST APIs, Integration testing</dd>
+        </div>
+        <div>
+          <dt>Databases</dt>
+          <dd>SQL (SQLite, Postgres via Supabase), schema design, Knex migrations + seeds, indexing strategies</dd>
+        </div>
+        <div>
+          <dt>Tooling</dt>
+          <dd>Vite, Vitest, Playwright, axe-core, Git, Cloudflare Pages, Vercel, Anthropic / OpenAI APIs (used in my Dev Academy ai-chatbot project)</dd>
+        </div>
+        <div>
+          <dt>Practice</dt>
+          <dd>TDD where it helps, scaffold-first learning, design-doc-driven work, accessibility audits.
+              Currently learning: AI agent + worker patterns for the Learning Companion Project.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section>
+      <h2>How I work</h2>
+      <p>
+        I roadmap projects into design docs, flow charts, and diagrams broken into phases — each phase ships something deployable, and I work small pieces at a time. Clean code matters to me; readability and accessibility live at the top of my philosophy. I find code difficult to read myself, so making it easier for me to read tends to mean making the finished result easier for everyone who ends up using what I build.
+      </p>
+      <p>
+        I match the tool to the shape of the work: Astro for content-shaped sites because it gets out of my way, Next.js when there's real client-side state, Express + Knex when I want to wire the relational layer by hand.
+      </p>
+    </section>
+
+    <section>
+      <h2>What I am looking for</h2>
+      <p>
+        Junior or graduate developer, Auckland-based, open to remote. Looking for a team where accessibility is the default not the add-on, documentation is part of the work, and there's room to learn the parts of the stack I haven't lived in yet. I'm applying through Summer of Tech 2026/27.
+      </p>
+      <p>
+        Email <a href={`mailto:${site.email}`}>{site.email}</a> or <a href="/cv">grab my CV</a>.
+      </p>
+    </section>
+  </article>
+</Page>
+
+<style>
+  .label {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--lotus);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .opener h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    margin-bottom: 1rem;
+  }
+
+  .lede {
+    font-size: var(--text-lede);
+    color: var(--mist);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 36rem;
+  }
+
+  .about section {
+    margin-bottom: 2.5rem;
+  }
+
+  .about h2 {
+    font-size: var(--text-h3);
+    margin-bottom: 0.75rem;
+    color: var(--lantern);
+  }
+
+  .skills {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .skills div {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+  }
+
+  .skills dt {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--lotus);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .skills dd {
+    color: var(--moonlight);
+  }
+
+  @media (max-width: 36rem) {
+    .skills div { grid-template-columns: 1fr; }
+  }
+</style>
