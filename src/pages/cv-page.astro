@@ -1,0 +1,238 @@
+---
+import Page from '../layouts/Page.astro'
+import { site } from '../lib/site'
+---
+
+<Page title="CV — Serina McFall" description="Curriculum vitae for Serina McFall — junior developer, accessibility-first, Auckland-based.">
+  <article class="cv">
+    <header class="cv-head">
+  <div>
+    <h1>Serina McFall</h1>
+    <p class="role">Junior developer · accessibility-first · neurospicy</p>
+  </div>
+  <ul class="contact">
+    <li><a href={site.url}>vixenz.dev</a></li>
+    <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+    <li><a href={site.github}>GitHub</a></li>
+    <li><a href={site.linkedin}>LinkedIn</a></li>
+    <li>{site.location}</li>
+  </ul>
+</header>
+
+ <section>
+  <h2>Skills</h2>
+  <dl class="skills">
+    <div>
+      <dt>Frontend</dt>
+      <dd>React, JavaScript, TypeScript, Astro, CSS, semantic HTML, WCAG 2.2, W3C APG patterns</dd>
+    </div>
+    <div>
+      <dt>Backend</dt>
+      <dd>Express, REST APIs, Integration testing</dd>
+    </div>
+    <div>
+      <dt>Databases</dt>
+      <dd>SQL (SQLite, Postgres via Supabase), schema design, Knex migrations + seeds, indexing strategies</dd>
+    </div>
+    <div>
+      <dt>Tooling</dt>
+      <dd>Vite, Vitest, Playwright, axe-core, Git, Cloudflare Pages, Vercel, Anthropic / OpenAI APIs (used in my Dev Academy ai-chatbot project)</dd>
+    </div>
+    <div>
+      <dt>Practice</dt>
+      <dd>TDD where it helps, scaffold-first learning, design-doc-driven work, accessibility audits. Currently learning: AI agent + worker patterns for the Learning Companion Project.</dd>
+    </div>
+  </dl>
+</section>
+
+<section>
+  <h2>Projects</h2>
+  <ul class="projects">
+    <li>
+      <strong>Atlas — visual concept library.</strong>
+      A bootcamp shell (<code>art-gallery</code>) reworked into a living, accessibility-first concept library. <a href={`${site.url}/work/atlas`}>vixenz.dev/work/atlas</a>
+    </li>
+    <li>
+      <strong>The MTG Project.</strong>
+      Eight design docs for a Commander deck-builder. Tech stack, schema, and architecture fully designed. <a href={`${site.url}/work/mtg-project`}>vixenz.dev/work/mtg-project</a>
+    </li>
+    <li>
+      <strong>Avalúne Compendium.</strong>
+      Express + Knex + SQLite practice backend with real worldbuilding canon. <a href={`${site.url}/work/avalune-compendium`}>vixenz.dev/work/avalune-compendium</a>
+    </li>
+    <li>
+      <strong>Realmstack.</strong>
+      A co-built project with my husband. Cloudflare Workers (D1, KV, R2), TypeScript. Doc-led planning phase — declaration, explainers, and research docs taking shape; implementation begins from there. <a href="https://realmstack.world">realmstack.world</a>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <p><strong>Dev Academy Aotearoa</strong> — full-stack web development bootcamp. Completed 2026.</p>
+</section>
+
+<section>
+  <h2>Background</h2>
+  <p>This is a career change. I spent the last decade in customer service and hospitality. The skills I'm bringing across: working with people under pressure, real-time problem-solving, communication, and reading what someone needs before they say it — the same instinct that drives accessibility-first design.</p>
+</section>
+
+  </article>
+</Page>
+
+<style>
+
+  .cv {
+    max-width: 48rem;
+
+  }
+
+  .cv-head {
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--tile-border);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+
+  }
+
+  .cv-head h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0.25rem;
+
+  }
+
+  .role {
+    color: var(--mist);
+    font-size: var(--text-ui);
+
+
+  }
+
+  .contact {
+    list-style: none;
+    text-align: right;
+    font-size: var(--text-ui);
+    color: var(--mist);
+
+  }
+
+  .cv .projects, .cv .other {
+    list-style: none;
+    display:grid;
+    gap:0.625rem
+
+  }
+
+  .cv .projects li, .cv .other li {
+    color: var(--mist);
+    max-width: none;
+
+  }
+
+  .cv .projects strong {
+    color: var(--moonlight);
+    font-weight: 600;
+    
+  }
+
+  .cv section {
+    margin: 1.25rem 0;
+
+  }
+
+  .cv h2 {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--lotus);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.625rem;
+  }
+
+  .cv dl {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .cv dl div {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+  }
+
+  .cv dt {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--lotus);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .cv dd {
+    color: var(--moonlight);
+  }
+
+  @media (max-width: 36rem) {
+    .cv-head { flex-direction: column; }
+    .contact { text-align: left; }
+    .cv dl div { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    :root {
+      --midnight: #ffffff;
+      --moonlight: #1a1a1a;
+      --mist: #444;
+      --lotus: #444;
+      --lantern: #444;
+      --magnolia: #444;
+      --tile-border: #ccc;
+      --deep-sky: #ffffff;
+    }
+    :global(body) {
+      background: white !important;
+      color: black !important;
+      font-size: 10pt;
+      line-height: 1.5;
+    }
+    :global(body > header),
+    :global(body > footer),
+    :global(.skip-link) {
+      display: none !important;
+    }
+    :global(main) {
+      padding: 0 !important;
+    }
+    .cv {
+      max-width: 100%;
+    }
+    .cv a {
+      color: #1a1a1a;
+      border-bottom: none;
+    }
+    .cv-head {
+      padding-bottom: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .cv-head h1 {
+      font-size: 1.65rem;
+    }
+    .cv section {
+      margin: 0.9rem 0;
+    }
+    .cv h2 {
+      margin-bottom: 0.5rem;
+    }
+    .cv .projects, .cv .other {
+      gap: 0.5rem;
+    }
+    .cv dl {
+      gap: 0.5rem;
+    }
+  }
+
+</style>
