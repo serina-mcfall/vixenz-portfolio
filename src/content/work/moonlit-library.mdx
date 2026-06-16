@@ -1,0 +1,52 @@
+---
+title: 'Moonlit Library — three credentials, one shipped repo'
+ord: 'II'
+summary: 'A Dev Academy fullstack challenge that became three submitted assessments and a deployed product. Built to learn fullstack end-to-end, designed for how I read, deployed solo on Render.'
+status: 'live'
+repo: 'https://github.com/serina-mcfall/moonlit-library'
+live: 'https://moonlit-library.onrender.com'
+updated: '2026-06-16'
+---
+
+## The brief
+
+Moonlit Library is Dev Academy's fullstack-collection challenge. The brief is open: build a small fullstack web app — anything you'd actually use — and bring it through the full lifecycle. Mine became a personal library: books I've read, books I want to read, with covers and ratings and notes. Express + Knex + SQLite on the server. React + Vite on the client. Live at [moonlit-library.onrender.com](https://moonlit-library.onrender.com).
+
+The library framing was intentional. I read carefully, slowly, and I wanted somewhere to track that — somewhere designed for how I read, not how the average reading tracker assumes everyone reads.
+
+## Three credentials, one repo
+
+One repo carries three Dev Academy submissions:
+
+- **CP02 — Software Quality.** The testing + refactoring + code review track. Achieved 2026-06-13. The submission documents what "quality" means in this codebase: tests that cover real behaviour (not coverage theatre), refactoring that earns its place, commit messages that explain the *why*.
+- **WD03 — Forms.** The form-handling track. Validation, error states, accessibility at the input layer. Submitted 2026-06-15.
+- **WD04 — Fullstack.** The whole thing — Express + Knex + React + deploy. Submitted 2026-06-15.
+
+What made one repo carry all three is incremental delivery. Each phase is a deployable feature with its own tests and its own commit story. Nothing was bolted on at the end to "satisfy CP02"; CP02 was the way the code was already being written, just documented for the submission.
+
+## Designed for how I read
+
+I am dyslexic and AuDHD. Two practical consequences for any reading-shaped UI I build for myself:
+
+- **No italics in body text.** Italics break my reading flow — the letterforms slant out of the muscle memory I use to read at speed. In Moonlit's `BookDetail`, book titles do not render in italics. Emphasis is by colour and weight only.
+- **Real keyboard semantics on custom widgets.** `MoonRating` is a five-moon star-rating widget. It is a radiogroup. Arrow keys move between options, Enter selects, focus is visible at every step. A screen reader walks it correctly without me writing a parallel announcement layer.
+
+The reading width is capped at 66ch. Line height sits at 1.6. Lexend Variable is the body face — designed specifically for readers with dyslexia, with letterforms that are harder to confuse than the standard Inter / Roboto family.
+
+None of this is a11y theatre. It is the rules I live by, applied to my own code so I can use my own product. The fact that it makes the product usable for other people is downstream of that.
+
+## When the API broke
+
+I started Moonlit with Google Books for cover images and metadata. Two weeks in, the rate limits + the thumbnail policy started biting: the covers were missing or low-res for a meaningful fraction of books, and the fallback experience was worse than the success path. I switched to Open Library: no auth, no rate limit problems at my scale, better cover images, same metadata shape.
+
+Half a day to rewrite the fetch layer. A small loss for a real win — the product now works for the books I actually have, not just the bestsellers Google indexes well.
+
+A second pivot came at deploy. Render's free tier runs Node, but my project is TypeScript with ESM, and the default `node` start command does not handle `.ts` on Node 22 without flags. I switched the start command to `tsx`. Three flags had to align — `NODE_ENV`, the build target, and the start runtime. The first deploy failed silently. The second worked. The third was the one I actually wanted.
+
+These are not heroic stories. They are honest ones. Shipping under deadline pressure means making the call that gets you to a working product, then documenting the trade-off in the commit so the next person (often future-me) does not have to relitigate it.
+
+## What's next
+
+Moonlit's Phase 1 accessibility sweep is open: BookDetail italics removal (already drafted), MoonRating screen-reader walk under actual NVDA (planned). After that, the case-study version of this page lives on — the project's behaviour evolves but the writeup stays anchored to where it was on 2026-06-16, with the assessments achieved and the live URL working.
+
+Three Dev Academy credentials, one shipped repo, one deployment that survives without me touching it. That is the lesson I am taking out of Moonlit Library.
