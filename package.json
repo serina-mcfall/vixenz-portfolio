@@ -9,13 +9,20 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro", 
+    "astro": "astro",
     "test": "playwright test",
     "test:a11y": "playwright test --grep @a11y"
   },
   "dependencies": {
     "@astrojs/mdx": "^6.0.2",
-    "astro": "^6.4.4"
+    "@astrojs/react": "^6.0.1",
+    "@tailwindcss/vite": "^4.3.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^6.4.4",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "tailwindcss": "^4.3.2"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.3",
