@@ -10,6 +10,22 @@
   --lantern: #E6B870;
   --lotus: #6FB3B8;
 
+  --glow-magnolia: rgba(232, 180, 196, 0.22);
+  --glow-lantern: rgba(230, 184, 112, 0.22);
+  --glow-lotus: rgba(111, 179, 184, 0.22);
+
+  --surface-card: rgba(27, 29, 55, 0.55);
+  --surface-card-blur: 6px;
+
+  --z-atmosphere: 0;
+  --z-content: 1;
+
+  --drift-slow: 22s;
+  --drift-slower: 34s;
+  --fade-in: 800ms;
+
+  --space-section: clamp(3rem,6vw, 5rem);
+
   --font-body: 'Lexend', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'Menlo', monospace;
 
