@@ -44,8 +44,8 @@ const nowItems = [
     {site.tagline}
   </p>
   <p class="meta">
-     — Auckland · open to remote
-  </p>
+  Auckland · Open to remote
+</p>
 
 </section>
 
@@ -70,25 +70,37 @@ const nowItems = [
 </Page>
 
 <style>
-  .hero { margin-bottom: 3rem; }
-  .hero h1 { margin-bottom: 1rem; }
-  .hero .dot { color: var(--magnolia); }
+  .hero {
+  margin-bottom: 3rem;
+  animation: hero-fade-in var(--fade-in) ease-out both;
+}
 
-  .tagline {
-    font-size: var(--text-lede);
-    color: var(--mist);
-    max-width: 36rem;
-    line-height: 1.55;
-  }
+.hero h1 {
+  margin-bottom: 1rem;
+  font-weight: 300;
+  letter-spacing: -0.015em;
+}
+
+.hero .dot {
+  color: var(--magnolia);
+  opacity: 0.65;
+}
+
+.tagline {
+  font-size: var(--text-lede);
+  color: var(--mist);
+  max-width: 36rem;
+  line-height: 1.65;
+}
 
   .meta {
-    font-family: var(--font-mono);
-    font-size: var(--text-meta);
-    color: var(--lotus);
-    letter-spacing: 0.04em;
-    margin-top: 1.25rem;
-  }
-
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  color: var(--mist);
+  letter-spacing: 0.14em;
+  margin-top: 1.25rem;
+  opacity: 0.75;
+}
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
@@ -111,6 +123,17 @@ const nowItems = [
   .contact-h {
     font-size: var(--text-h3);
     margin-bottom: 0.75rem;
+  }
+
+  @keyframes hero-fade-in {
+    from { opacity: 0;}
+    to { opacity: 1;}
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero {
+      animation: none;
+    }
   }
 </style>
 
