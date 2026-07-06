@@ -29,17 +29,19 @@ const { items } = Astro.props;
 
 <style>
   .strip {
-    border-top: 1px solid var(--tile-border);
-    border-bottom: 1px solid var(--tile-border);
-    padding: 1.5rem 0;
+    background: var(--surface-card);
+    backdrop-filter: blur(var(--surface-card-blur));
+    border-radius: 10px;
+    padding: clamp(1.25rem, 3vw, 2rem);
     margin: 3rem 0;
+    position: relative;
+    z-index: var(--z-content);
   }
 
-  
   .heading {
     font-family: var(--font-mono);
     font-size: var(--text-meta);
-    color: var(--lotus);
+    color: var(--mist);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     margin-bottom: 0.75rem;
@@ -54,11 +56,10 @@ const { items } = Astro.props;
 
   li {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     align-items: baseline;
   }
 
-  
   .label {
     font-family: var(--font-mono);
     font-size: var(--text-meta);
@@ -66,9 +67,37 @@ const { items } = Astro.props;
     letter-spacing: 0.04em;
     flex-shrink: 0;
     min-width: 7rem;
+    opacity: 0.75;
   }
 
   .text {
     color: var(--moonlight);
+  }
+
+  .text a {
+    color: var(--moonlight);
+    text-decoration: underline;
+    text-decoration-color: rgba(232, 180, 196, 0.6);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px;
+    transition: text-decoration-color 150ms ease, text-shadow 200ms ease;
+  }
+
+  .text a:hover,
+  .text a:focus-visible {
+    text-decoration-color: var(--magnolia);
+    text-shadow: 0 0 12px rgba(232, 180, 196, 0.35);
+  }
+
+  .text a:focus-visible {
+    outline: 2px solid var(--magnolia);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .text a {
+      transition: none;
+    }
   }
 </style>
