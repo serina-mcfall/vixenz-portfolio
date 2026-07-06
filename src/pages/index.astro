@@ -118,11 +118,39 @@ const nowItems = [
     border: 0;
   }
 
-  .contact { margin-top: 3rem; }
+    .contact { margin-top: var(--space-section); }
 
   .contact-h {
-    font-size: var(--text-h3);
-    margin-bottom: 0.75rem;
+    font-weight: 300;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 1.25rem;
+  }
+
+  .contact p a {
+    color: var(--moonlight);
+    text-decoration: underline;
+    text-decoration-color: rgba(232, 180, 196, 0.6);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px;
+    transition: text-decoration-color 150ms ease, text-shadow 200ms ease;
+  }
+
+  .contact p a:hover,
+  .contact p a:focus-visible {
+    text-decoration-color: var(--magnolia);
+    text-shadow: 0 0 12px rgba(232, 180, 196, 0.35);
+  }
+
+  .contact p a:focus-visible {
+    outline: 2px solid var(--magnolia);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .contact p a {
+      transition: none;
+    }
   }
 
   @keyframes hero-fade-in {
