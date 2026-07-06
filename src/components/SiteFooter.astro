@@ -21,23 +21,26 @@ const year = new Date().getFullYear();
     padding: 2.5rem var(--gutter);
     border-top: 1px solid var(--tile-border);
     margin-top: 4rem;
+    background: rgba(22, 21, 46, 0.75);
+    backdrop-filter: blur(6px);
+    position: relative;
+    z-index: var(--z-content);
   }
 
   .inner {
     max-width: var(--content-width);
     margin: 0 auto;
     display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 1.75rem;
+    align-items: flex-start;
   }
 
   .copy {
     color: var(--mist);
     font-size: var(--text-ui);
-    margin: 0;             
-    max-width: none;      
+    margin: 0;
+    max-width: none;
   }
 
   .links {
