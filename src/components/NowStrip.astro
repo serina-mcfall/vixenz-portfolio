@@ -28,15 +28,15 @@ const { items } = Astro.props;
 </section>
 
 <style>
-  .strip {
-    background: var(--surface-card);
-    backdrop-filter: blur(var(--surface-card-blur));
-    border-radius: 10px;
-    padding: clamp(1.25rem, 3vw, 2rem);
-    margin: 3rem 0;
-    position: relative;
-    z-index: var(--z-content);
-  }
+.strip {
+  background: var(--surface-card);
+  backdrop-filter: blur(var(--surface-card-blur));
+  border-radius: 10px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  margin: var(--space-section) 0;
+  position: relative;
+  z-index: var(--z-content);
+}
 
   .heading {
     font-family: var(--font-mono);
