@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Page from '../../layouts/Page.astro';
+import { readingTime } from '../../lib/reading-time';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -12,29 +13,90 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const readMinutes = readingTime(post.body ?? '');
+const topic = post.data.tags[0] ?? null;
 ---
 <Page title={post.data.title} description={post.data.summary}>
   <article class="post">
+    <p class="back">
+      <a href="/blog">← All notes</a>
+    </p>
+
+    {topic && <p class="topic">{topic}</p>}
+
     <p class="meta">
       <time datetime={post.data.published}>{post.data.published}</time>
+      <span> · </span>
+      <span>{readMinutes} min read</span>
       {post.data.tags.length > 0 && (
-        <>· {post.data.tags.map(t => <span class="tag">{t}</span>)}</>
+        <>
+          <span> · </span>
+          {post.data.tags.map(t => <span class="tag">{t}</span>)}
+        </>
       )}
     </p>
+
     <h1>{post.data.title}</h1>
     <p class="lede">{post.data.summary}</p>
-    <Content />
+
+    <div class="body">
+      <Content />
+    </div>
+
+    <p class="back back-bottom">
+      <a href="/blog">← All notes</a>
+    </p>
   </article>
 </Page>
 
 <style>
+  .post {
+    max-width: var(--reading-width, 66ch);
+    margin-inline: auto;
+  }
+
+  .back a {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--moonlight);
+    text-decoration: underline;
+    text-decoration-color: rgba(232, 180, 196, 0.6);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px;
+    letter-spacing: 0.06em;
+    transition: text-decoration-color 150ms ease, text-shadow 200ms ease;
+  }
+
+  .back a:hover,
+  .back a:focus-visible {
+    text-decoration-color: var(--magnolia);
+    text-shadow: 0 0 12px rgba(232, 180, 196, 0.35);
+  }
+
+  .back a:focus-visible {
+    outline: 2px solid var(--magnolia);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .topic {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--magnolia);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.65;
+  }
 
   .meta {
     font-family: var(--font-mono);
     font-size: var(--text-meta);
-    color: var(--lotus);
-    letter-spacing: 0.04em;
-    margin-bottom: 0.5rem;
+    color: var(--mist);
+    letter-spacing: 0.14em;
+    margin-bottom: 1rem;
+    opacity: 0.75;
   }
 
   .tag {
@@ -43,14 +105,132 @@ const { Content } = await render(post);
 
   .post h1 {
     font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 300;
+    letter-spacing: -0.015em;
+    color: var(--moonlight);
     margin-bottom: 1rem;
+    line-height: 1.2;
   }
 
   .post .lede {
     font-size: var(--text-lede);
     color: var(--mist);
-    line-height: 1.6;
+    line-height: 1.65;
     margin-bottom: 2.5rem;
-    max-width: 36rem;
+    max-width: none;
+  }
+
+  .body {
+    max-width: var(--reading-width, 66ch);
+    line-height: 1.6;
+  }
+
+  .body :global(em) {
+    font-style: normal;
+    color: var(--moonlight);
+    font-weight: 500;
+  }
+
+  .body :global(h2) {
+    font-family: var(--font-body);
+    font-weight: 500;
+    color: var(--moonlight);
+    font-size: var(--text-h2);
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.3em;
+    border-bottom: 2px solid rgba(232, 180, 196, 0.4);
+    line-height: 1.4;
+  }
+
+  .body :global(h3) {
+    font-family: var(--font-body);
+    font-weight: 500;
+    color: var(--moonlight);
+    font-size: var(--text-h3);
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .body :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .body :global(a) {
+    color: var(--moonlight);
+    text-decoration: underline;
+    text-decoration-color: rgba(232, 180, 196, 0.6);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px;
+    transition: text-decoration-color 150ms ease, text-shadow 200ms ease;
+  }
+
+  .body :global(a:hover),
+  .body :global(a:focus-visible) {
+    text-decoration-color: var(--magnolia);
+    text-shadow: 0 0 12px rgba(232, 180, 196, 0.35);
+  }
+
+  .body :global(a:focus-visible) {
+    outline: 2px solid var(--magnolia);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .body :global(pre) {
+    border-left: 2px solid rgba(232, 180, 196, 0.4);
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    margin: 1.5rem 0;
+  }
+
+  .body :global(code) {
+    font-family: var(--font-mono);
+  }
+
+  .body :global(:not(pre) > code) {
+    background: rgba(230, 184, 112, 0.12);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    color: var(--moonlight);
+    font-size: 0.9em;
+  }
+
+  .body :global(blockquote) {
+    border-left: 3px solid rgba(232, 180, 196, 0.4);
+    padding-left: 1rem;
+    color: var(--mist);
+    font-style: normal;
+    margin: 1.5rem 0;
+  }
+
+  .body :global(img) {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    display: block;
+    margin: 1.5rem 0;
+  }
+
+  .body :global(hr) {
+    border: none;
+    border-top: 1px solid rgba(179, 188, 208, 0.2);
+    margin: var(--space-section) 0;
+  }
+
+  .back-bottom {
+    margin-top: var(--space-section);
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(179, 188, 208, 0.2);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .back a,
+    .body :global(a) {
+      transition: none;
+    }
   }
 </style>
