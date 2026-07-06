@@ -1,0 +1,67 @@
+---
+// No props — decorative background layer, fixed composition.
+---
+
+<div class="atmosphere" aria-hidden="true">
+  <div class="orb orb-magnolia"></div>
+  <div class="orb orb-lantern"></div>
+  <div class="orb orb-lotus"></div>
+</div>
+
+<style>
+  .atmosphere {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-atmosphere);
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .orb {
+    position: absolute;
+    width: clamp(300px, 35vw, 600px);
+    height: clamp(300px, 35vw, 600px);
+    filter: blur(120px);
+    border-radius: 50%;
+  }
+
+  .orb-magnolia {
+    top: -8vw;
+    left: -8vw;
+    background: radial-gradient(circle, var(--glow-magnolia), transparent 60%);
+    animation: drift-a var(--drift-slow) ease-in-out infinite alternate;
+  }
+
+  .orb-lantern {
+    top: 30%;
+    right: -10vw;
+    background: radial-gradient(circle, var(--glow-lantern), transparent 60%);
+    animation: drift-b var(--drift-slower) ease-in-out infinite alternate;
+  }
+
+  .orb-lotus {
+    bottom: -12vw;
+    left: 30%;
+    background: radial-gradient(circle, var(--glow-lotus), transparent 60%);
+    animation: drift-c var(--drift-slow) ease-in-out infinite alternate;
+    /* Negative delay: skips the initial pause so orbs are already phase-offset on first paint. */
+    animation-delay: -7s;
+  }
+
+  @keyframes drift-a {
+    from { transform: translate(0, 0); }
+    to   { transform: translate(4vw, -3vw); }
+  }
+  @keyframes drift-b {
+    from { transform: translate(0, 0); }
+    to   { transform: translate(-5vw, 4vw); }
+  }
+  @keyframes drift-c {
+    from { transform: translate(0, 0); }
+    to   { transform: translate(3vw, -5vw); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .orb { animation: none; }
+  }
+</style>
