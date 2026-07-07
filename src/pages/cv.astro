@@ -3,7 +3,7 @@ import Page from '../layouts/Page.astro'
 import { site } from '../lib/site'
 ---
 
-<Page title="CV — Serina McFall" description="Curriculum vitae for Serina McFall — junior developer, accessibility-first, Auckland-based.">
+<Page title="CV · Serina McFall" description="Curriculum vitae for Serina McFall: software developer, accessibility-first, Auckland-based.">
   <article class="cv">
     <p class="download-bar">
       <a href="/serina-mcfall-cv.pdf" download="serina-mcfall-cv.pdf" class="download-btn">
@@ -13,14 +13,16 @@ import { site } from '../lib/site'
     <header class="cv-head">
   <div>
     <h1>Serina McFall</h1>
-    <p class="role">Junior developer · accessibility-first · neurospicy</p>
+    <p class="role">Software Developer · accessibility-first · neurospicy</p>
   </div>
   <ul class="contact">
     <li><a href={site.url}>vixenz.dev</a></li>
     <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+    <li><a href="tel:+64214672266">+64 21 467 266</a></li>
     <li><a href={site.github}>GitHub</a></li>
     <li><a href={site.linkedin}>LinkedIn</a></li>
     <li>{site.location}</li>
+    <li>NZ citizen</li>
   </ul>
 </header>
 
