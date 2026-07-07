@@ -3,7 +3,7 @@ import Page from '../layouts/Page.astro'
 import { site } from '../lib/site'
 ---
 
-<Page title="CV — Serina McFall" description="Curriculum vitae for Serina McFall — junior developer, accessibility-first, Auckland-based.">
+<Page title="CV · Serina McFall" description="Curriculum vitae for Serina McFall: software developer, accessibility-first, Auckland-based.">
   <article class="cv">
     <p class="download-bar">
       <a href="/serina-mcfall-cv.pdf" download="serina-mcfall-cv.pdf" class="download-btn">
@@ -13,20 +13,24 @@ import { site } from '../lib/site'
     <header class="cv-head">
   <div>
     <h1>Serina McFall</h1>
-    <p class="role">Junior developer · accessibility-first · neurospicy</p>
+    <p class="role">Software Developer · accessibility-first · neurospicy</p>
   </div>
   <ul class="contact">
     <li><a href={site.url}>vixenz.dev</a></li>
     <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+    <li><a href="tel:+64214672266">+64 21 467 266</a></li>
     <li><a href={site.github}>GitHub</a></li>
     <li><a href={site.linkedin}>LinkedIn</a></li>
     <li>{site.location}</li>
+    <li>NZ citizen</li>
   </ul>
 </header>
 
  <section>
   <h2>Summary</h2>
-  <p class="scaffold-note">[Phase 3 — 120–200 word summary. Serina writes, sourcing from Q10 (why tech + "found the home I did not know I was looking for") + Q4-Q5 (integrated tech + human skills) + one accomplishment with a number + CTA.]</p>
+  <p>Software Developer. I've made the shift from nearly a decade in customer service to a career in tech.</p>
+  <p>I came into Dev Academy with no prior coding knowledge. The biggest thing I've learned is how to code, and I've also learned to better understand myself, my needs, and how I think. As well as Human Skills: the empathy and understanding others I built up over a decade in customer service, and the team craft I found in Dev Academy. Tech is the industry I can see still being viable in the next 20 years, and I love it: server-side gives structure to the side of my brain that needs it, and my artistic side loves the design of the front end. I found the home I did not know I was looking for.</p>
+  <p>I'm neurodivergent, and I've learned this is not a weakness but is in fact a strength I can use. I plan and doc before I write code, I gate WCAG 2.2 AA on my own projects, and I start Dev Academy's AI Launchpad on 27 July 2026: 16 weeks of agentic coding plus industry placement.</p>
 </section>
 
 <section>
@@ -38,23 +42,50 @@ import { site } from '../lib/site'
   <h2>Projects</h2>
   <ul class="projects">
     <li>
-      <strong>Atlas — visual concept library.</strong>
-      A bootcamp shell (<code>art-gallery</code>) reworked into a living, accessibility-first concept library. <a href={`${site.url}/work/atlas`}>vixenz.dev/work/atlas</a>
+      <h3>Moonlit Library</h3>
+      <p class="project-meta">
+        <a href="https://moonlit-library.onrender.com">moonlit-library.onrender.com</a>
+        <span aria-hidden="true"> · </span>
+        <a href="https://github.com/serina-mcfall/moonlit-library">github.com/serina-mcfall/moonlit-library</a>
+      </p>
+      <p><strong>Stack:</strong> Express + Knex + SQLite on the server and React + Vite on the client</p>
+      <p><strong>Role:</strong> Solo build</p>
+      <p><strong>Outcome:</strong> This was a Dev Academy challenge that earned three credentials (CP02 + WD03 + WD04). It's a personal library designed for how I read and has been deployed on Render.</p>
     </li>
     <li>
-      <strong>The MTG Project.</strong>
-      Eight design docs for a Commander deck-builder. Tech stack, schema, and architecture fully designed. <a href={`${site.url}/work/mtg-project`}>vixenz.dev/work/mtg-project</a>
+      <h3>Atlas: a visual concept library</h3>
+      <p class="project-meta">
+        <a href={`${site.url}/work/atlas`}>vixenz.dev/work/atlas</a>
+        <span aria-hidden="true"> · </span>
+        <a href="https://github.com/serina-mcfall/atlas">github.com/serina-mcfall/atlas</a>
+      </p>
+      <p><strong>Stack:</strong> React + Vite + TypeScript, Express + Knex + SQLite, MDX</p>
+      <p><strong>Role:</strong> Solo build (in progress)</p>
+      <p><strong>Outcome:</strong> This project was a rework of a Dev Academy challenge called Art Gallery. I have reworked it into an accessibility-first concept library that holds both concept sheets and reference sheets through kind-based routing. WCAG 2.2 AA is gated in Playwright tests. So far four concept sheets are shipped in the repo (React Components, How a database query travels, useState vs useReducer, and What aria-modal actually does), along with a Terminal reference sheet.</p>
     </li>
     <li>
-      <strong>Avalúne Compendium.</strong>
-      Express + Knex + SQLite practice backend with real worldbuilding canon. <a href={`${site.url}/work/avalune-compendium`}>vixenz.dev/work/avalune-compendium</a>
+      <h3>Kiwicom: a developer project discovery hub</h3>
+      <p class="project-meta">
+        <span class="deploy-note">not yet deployed</span>
+        <span aria-hidden="true"> · </span>
+        <a href="https://github.com/Oscar-Wakefield-Ngahuru-2026/Kiwicom">github.com/Oscar-Wakefield-Ngahuru-2026/Kiwicom</a>
+      </p>
+      <p><strong>Stack:</strong> React + Vite + TS + Tailwind, Node + Express + TS, PostgreSQL (Supabase auth), Knex</p>
+      <p><strong>Role:</strong> My role in this project was the git keeper of a 4-person team. I reviewed every PR, ran merges to Dev, and Resolved conflicts when they came about (luckily there were not many). 79 commits by the end, highest on the team.</p>
+      <p><strong>Outcome:</strong> This was our Final Dev Academy group project. Kiwicom was built as a community hub for devs and uni grads to find open source projects that they can learn from as well as participate in. It pulls from GitHub and filters by language or topic, and lets them save projects as bookmarks. They can also build a profile page and add their own open source projects. We were able to ship browse, login, project pages, profiles, bookmarks, and create-project. We had planned for Claude-powered README summaries and deployment but these did not land before the assignment ended. We will likely keep working on this project as a group when time allows. The editorial design system (Lexend + JetBrains Mono, cream and deep-sky palette) is a reusable frontend layer, which came from my own aesthetic.</p>
     </li>
     <li>
-      <strong>Realmstack.</strong>
-      A co-built project with my husband. Cloudflare Workers (D1, KV, R2), TypeScript. Doc-led planning phase — declaration, explainers, and research docs taking shape; implementation begins from there. <a href="https://realmstack.world">realmstack.world</a>
+      <h3>Realmstack</h3>
+      <p class="project-meta">
+        <span class="deploy-note">not deployed</span>
+        <span aria-hidden="true"> · </span>
+        <a href="https://github.com/Realmstacks/Realmstack">github.com/Realmstacks/Realmstack</a>
+      </p>
+      <p><strong>Stack:</strong> Cloudflare Workers (planning to bind D1, KV, R2, Queues), TypeScript. Rest of the stack still to be decided.</p>
+      <p><strong>Role:</strong> Co-built with my husband. Currently in doc-led planning phase.</p>
+      <p><strong>Outcome:</strong> This is a long-term worldbuilding project we are building together. We are in the declaration phase, so before code goes into the repo we have written the north-star vision, mapped out user flows and prior art, and done a deep encryption architecture research pass that pulled findings from multiple sources including Claude, ChatGPT, Gemini, Kimi, and Deepseek to help lock our decisions early. Client-side end-to-end encryption is the technical anchor for the whole thing. This project was born of my original plan of a World Bible for my writing but morphed into a project that can be used by writers, D&amp;D Dungeon masters, Game writers and the like: a place where they can build out their world, find resources, and connect with other like-minded individuals to help in their creative endeavours. Though this started as my brainchild, my husband has taken my initial vision and breathed life into it, making it what it will eventually become.</p>
     </li>
   </ul>
-  <p class="scaffold-note">[Phase 5 — rewrite each project entry with live+repo links, stack tags, role stated, outcome with number.]</p>
 </section>
 
 <section>
@@ -201,7 +232,7 @@ import { site } from '../lib/site'
   .cv .projects, .cv .other {
     list-style: none;
     display:grid;
-    gap:0.625rem
+    gap: 1.25rem;
 
   }
 
@@ -211,10 +242,42 @@ import { site } from '../lib/site'
 
   }
 
-  .cv .projects strong {
+  .cv .projects h3 {
     color: var(--moonlight);
+    font-size: 1rem;
     font-weight: 600;
-    
+    margin: 0 0 0.25rem;
+  }
+
+  .cv .project-meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--mist);
+    margin: 0 0 0.5rem;
+    max-width: none;
+  }
+
+  .cv .project-meta .deploy-note {
+    opacity: 0.75;
+  }
+
+  .cv .projects p {
+    margin: 0 0 0.35rem;
+    max-width: none;
+  }
+
+  .cv .projects p:last-child {
+    margin-bottom: 0;
+  }
+
+  .cv .projects strong {
+    color: var(--lotus);
+    font-weight: 600;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-right: 0.25rem;
   }
 
   .cv section {
@@ -314,7 +377,21 @@ import { site } from '../lib/site'
       margin-bottom: 0.5rem;
     }
     .cv .projects, .cv .other {
-      gap: 0.5rem;
+      gap: 0.75rem;
+    }
+    .cv .projects h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.15rem;
+    }
+    .cv .project-meta {
+      color: #444;
+      margin-bottom: 0.25rem;
+    }
+    .cv .projects p {
+      margin-bottom: 0.2rem;
+    }
+    .cv .projects strong {
+      color: #444;
     }
     .cv dl {
       gap: 0.5rem;
