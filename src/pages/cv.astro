@@ -5,6 +5,11 @@ import { site } from '../lib/site'
 
 <Page title="CV — Serina McFall" description="Curriculum vitae for Serina McFall — junior developer, accessibility-first, Auckland-based.">
   <article class="cv">
+    <p class="download-bar">
+      <a href="/serina-mcfall-cv.pdf" download="serina-mcfall-cv.pdf" class="download-btn">
+        Download CV (PDF)
+      </a>
+    </p>
     <header class="cv-head">
   <div>
     <h1>Serina McFall</h1>
@@ -86,6 +91,45 @@ import { site } from '../lib/site'
   .cv {
     max-width: 48rem;
 
+  }
+
+  .download-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 0 1.5rem;
+  }
+
+  .download-btn {
+    font-family: var(--font-mono);
+    font-size: var(--text-ui);
+    color: var(--moonlight);
+    background: var(--surface-card);
+    backdrop-filter: blur(var(--surface-card-blur));
+    padding: 0.5rem 0.9rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+
+  .download-btn:hover,
+  .download-btn:focus-visible {
+    box-shadow: 0 0 16px rgba(232, 180, 196, 0.35);
+    transform: translateY(-1px);
+  }
+
+  .download-btn:focus-visible {
+    outline: 2px solid var(--magnolia);
+    outline-offset: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .download-btn {
+      transition: none;
+    }
+    .download-btn:hover,
+    .download-btn:focus-visible {
+      transform: none;
+    }
   }
 
   .cv-head {
@@ -189,6 +233,12 @@ import { site } from '../lib/site'
   }
 
   @media print {
+    .download-bar {
+      display: none !important;
+    }
+    :global(.atmosphere) {
+      display: none !important;
+    }
     :root {
       --midnight: #ffffff;
       --moonlight: #1a1a1a;

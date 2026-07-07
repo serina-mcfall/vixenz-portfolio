@@ -11,7 +11,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "test": "playwright test",
-    "test:a11y": "playwright test --grep @a11y"
+    "test:a11y": "playwright test --grep @a11y",
+    "cv:pdf": "node scripts/generate-cv-pdf.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^6.0.2",
