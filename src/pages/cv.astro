@@ -35,7 +35,73 @@ import { site } from '../lib/site'
 
 <section>
   <h2>Experience</h2>
-  <p class="scaffold-note">[Phase 4 — Reverse-chronological entries. Roles to include: Dev Academy (bootcamp + Launchpad), Bach Care (Feedback Specialist + trainer), TIC (Claims Advisor), JB Hi-Fi (Team Lead, not "Customer Service Rep"), water lily farm, earlier Canadian roles compressed. Format: Role | Org | Location | Month YYYY – Month YYYY, plus 3 bullets each (built + hardest + outcome with number). Serina writes.]</p>
+
+  <article class="job">
+    <h3>Bachcare, The Holiday Home Company</h3>
+    <p class="job-meta">Auckland, NZ (Hybrid) <span aria-hidden="true"> · </span> Dec 2021 to Apr 2026</p>
+
+    <div class="role">
+      <h4>Feedback and Owner Operations Specialist <span class="role-dates">Dec 2022 to Apr 2026</span></h4>
+      <ul>
+        <li>Owned guest feedback resolution, sitting between the guest's needs and the owner's constraints to land solutions that worked for both.</li>
+        <li>Trained new team members on how to run feedback: what the role actually involves, and how to stay empathetic to guests who are frustrated.</li>
+        <li>Supported the owner relations team day to day: maintenance escalations, guidance for owners on improving their guest stays, and general problem-solving.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <h4>Booking Management Specialist <span class="role-dates">mid-2022 to Dec 2022</span></h4>
+      <ul>
+        <li>Managed in-stay needs for holiday-home guests: maintenance escalations, booking changes, and cancellations. Coordinated with third-party providers to keep stays on track.</li>
+        <li>Handled the complex booking scenarios other agents escalated: last-minute swaps, multi-property groups, disputed changes.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <h4>Reservations Specialist <span class="role-dates">Dec 2021 to mid-2022</span></h4>
+      <ul>
+        <li>Booked guests into properties across Bachcare's holiday-home portfolio, matching their preferences to what each property could actually deliver.</li>
+        <li>Provided pre-stay support so guests arrived knowing what to expect: property specifics, access, and local context.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="job">
+    <h3>TIC Group</h3>
+    <p class="job-meta">Auckland, NZ (On-site) <span aria-hidden="true"> · </span> May 2018 to Dec 2021</p>
+
+    <div class="role">
+      <h4>Claims Coordinator</h4>
+      <ul>
+        <li>Ran the warranty claims lifecycle for JB Hi-Fi's faulty products: raised claims, handled supplier paperwork, and saw them through to settlement so JB got their money back.</li>
+        <li>Owned salvage operations for TIC's NZ division: ordered containers, built picklists, and coordinated pickup and shipping to the Auckland port. Faulty hardware went to AU for sale overseas as parts.</li>
+        <li>Day to day: TIC Reporter (a bespoke Java logistics tool), Excel, and Word. Handled logistics coordination with couriers and freight-forwarders.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="job">
+    <h3>JB Hi-Fi</h3>
+    <p class="job-meta">Auckland (Sylvia Park, then Botany) <span aria-hidden="true"> · </span> Nov 2010 to May 2018</p>
+
+    <div class="role">
+      <h4>Counter Coordinator <span class="role-dates">Botany <span aria-hidden="true"> · </span> ~Nov 2013 to May 2018</span></h4>
+      <ul>
+        <li>Led the counter team of 5: ran schedules, did one-on-ones, and was the person they came to when they needed a manager to step in.</li>
+        <li>Bridged counter staff and management as their in-between: took team concerns up and management decisions back down.</li>
+        <li>Kept the counter running day to day alongside the team-lead work: customer service, POS, cash handling, and the escalations that came my way.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <h4>Customer Service Representative <span class="role-dates">Sylvia Park, then Botany <span aria-hidden="true"> · </span> Nov 2010 to ~Nov 2013</span></h4>
+      <ul>
+        <li>Joined the Sylvia Park store as part of the team that opened it on day one, then transferred to Botany two years in.</li>
+        <li>Travelled to Christchurch for a week to help set up and open the new store there, on the strength of my Sylvia Park launch experience.</li>
+        <li>Day to day: counter sales, POS, cash handling, finance applications, and returns coordination with distributors.</li>
+      </ul>
+    </div>
+  </article>
 </section>
 
 <section>
@@ -294,6 +360,81 @@ import { site } from '../lib/site'
     margin-bottom: 0.625rem;
   }
 
+  .cv .job {
+    margin-bottom: 1.5rem;
+  }
+
+  .cv .job:last-child {
+    margin-bottom: 0;
+  }
+
+  .cv .job h3 {
+    color: var(--moonlight);
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.15rem;
+  }
+
+  .cv .job-meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--mist);
+    margin: 0 0 0.75rem;
+    max-width: none;
+  }
+
+  .cv .role {
+    margin: 0 0 1rem;
+    padding-left: 0.75rem;
+    border-left: 1px solid var(--tile-border);
+  }
+
+  .cv .role:last-child {
+    margin-bottom: 0;
+  }
+
+  .cv .role h4 {
+    color: var(--moonlight);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0 0 0.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: baseline;
+  }
+
+  .cv .role-dates {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--mist);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  .cv .role ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .cv .role li {
+    color: var(--mist);
+    max-width: none;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .cv .role li::before {
+    content: "·";
+    color: var(--lotus);
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+  }
+
   .cv dl {
     display: grid;
     gap: 1rem;
@@ -391,6 +532,34 @@ import { site } from '../lib/site'
       margin-bottom: 0.2rem;
     }
     .cv .projects strong {
+      color: #444;
+    }
+    .cv .job {
+      margin-bottom: 0.9rem;
+    }
+    .cv .job h3 {
+      font-size: 0.95rem;
+    }
+    .cv .job-meta {
+      color: #444;
+      margin-bottom: 0.35rem;
+    }
+    .cv .role {
+      margin-bottom: 0.5rem;
+      padding-left: 0.5rem;
+      border-left-color: #ccc;
+    }
+    .cv .role h4 {
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
+    .cv .role-dates {
+      color: #444;
+    }
+    .cv .role ul {
+      gap: 0.2rem;
+    }
+    .cv .role li::before {
       color: #444;
     }
     .cv dl {
