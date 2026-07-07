@@ -25,6 +25,39 @@ import { site } from '../lib/site'
 </header>
 
  <section>
+  <h2>Summary</h2>
+  <p class="scaffold-note">[Phase 3 — 120–200 word summary. Serina writes, sourcing from Q10 (why tech + "found the home I did not know I was looking for") + Q4-Q5 (integrated tech + human skills) + one accomplishment with a number + CTA.]</p>
+</section>
+
+<section>
+  <h2>Experience</h2>
+  <p class="scaffold-note">[Phase 4 — Reverse-chronological entries. Roles to include: Dev Academy (bootcamp + Launchpad), Bach Care (Feedback Specialist + trainer), TIC (Claims Advisor), JB Hi-Fi (Team Lead, not "Customer Service Rep"), water lily farm, earlier Canadian roles compressed. Format: Role | Org | Location | Month YYYY – Month YYYY, plus 3 bullets each (built + hardest + outcome with number). Serina writes.]</p>
+</section>
+
+<section>
+  <h2>Projects</h2>
+  <ul class="projects">
+    <li>
+      <strong>Atlas — visual concept library.</strong>
+      A bootcamp shell (<code>art-gallery</code>) reworked into a living, accessibility-first concept library. <a href={`${site.url}/work/atlas`}>vixenz.dev/work/atlas</a>
+    </li>
+    <li>
+      <strong>The MTG Project.</strong>
+      Eight design docs for a Commander deck-builder. Tech stack, schema, and architecture fully designed. <a href={`${site.url}/work/mtg-project`}>vixenz.dev/work/mtg-project</a>
+    </li>
+    <li>
+      <strong>Avalúne Compendium.</strong>
+      Express + Knex + SQLite practice backend with real worldbuilding canon. <a href={`${site.url}/work/avalune-compendium`}>vixenz.dev/work/avalune-compendium</a>
+    </li>
+    <li>
+      <strong>Realmstack.</strong>
+      A co-built project with my husband. Cloudflare Workers (D1, KV, R2), TypeScript. Doc-led planning phase — declaration, explainers, and research docs taking shape; implementation begins from there. <a href="https://realmstack.world">realmstack.world</a>
+    </li>
+  </ul>
+  <p class="scaffold-note">[Phase 5 — rewrite each project entry with live+repo links, stack tags, role stated, outcome with number.]</p>
+</section>
+
+<section>
   <h2>Skills</h2>
   <dl class="skills">
     <div>
@@ -48,39 +81,24 @@ import { site } from '../lib/site'
       <dd>TDD where it helps, scaffold-first learning, design-doc-driven work, accessibility audits. Currently learning: AI agent + worker patterns for the Learning Companion Project.</dd>
     </div>
   </dl>
-</section>
-
-<section>
-  <h2>Projects</h2>
-  <ul class="projects">
-    <li>
-      <strong>Atlas — visual concept library.</strong>
-      A bootcamp shell (<code>art-gallery</code>) reworked into a living, accessibility-first concept library. <a href={`${site.url}/work/atlas`}>vixenz.dev/work/atlas</a>
-    </li>
-    <li>
-      <strong>The MTG Project.</strong>
-      Eight design docs for a Commander deck-builder. Tech stack, schema, and architecture fully designed. <a href={`${site.url}/work/mtg-project`}>vixenz.dev/work/mtg-project</a>
-    </li>
-    <li>
-      <strong>Avalúne Compendium.</strong>
-      Express + Knex + SQLite practice backend with real worldbuilding canon. <a href={`${site.url}/work/avalune-compendium`}>vixenz.dev/work/avalune-compendium</a>
-    </li>
-    <li>
-      <strong>Realmstack.</strong>
-      A co-built project with my husband. Cloudflare Workers (D1, KV, R2), TypeScript. Doc-led planning phase — declaration, explainers, and research docs taking shape; implementation begins from there. <a href="https://realmstack.world">realmstack.world</a>
-    </li>
-  </ul>
+  <p class="scaffold-note">[Phase 6 — regroup as Core / Familiar / Learning next; top 5 first; total 12–18 skills.]</p>
 </section>
 
 <section>
   <h2>Education</h2>
   <p><strong>Dev Academy Aotearoa — AI Launchpad</strong> — 16-week agentic coding programme: multi-agent workflows on production codebases, industry placement with a NZ tech company. 27 July – 13 November 2026.</p>
   <p><strong>Dev Academy Aotearoa</strong> — full-stack web development bootcamp. Completed 2026.</p>
+  <p class="scaffold-note">[Phase 7 — add high school + partial fine arts degree; keep brief since Experience is rich.]</p>
 </section>
 
 <section>
-  <h2>Background</h2>
-  <p>This is a career change. I spent the last decade in customer service and hospitality. The skills I'm bringing across: working with people under pressure, real-time problem-solving, communication, and reading what someone needs before they say it — the same instinct that drives accessibility-first design.</p>
+  <h2>Interests</h2>
+  <p class="scaffold-note">[Phase 7 — art (Diamond Dots, resin, painting, digital), writing + worldbuilding (Avalune, D&amp;D, Magic), gaming, reading. Serina writes.]</p>
+</section>
+
+<section>
+  <h2>References</h2>
+  <p>Available upon request.</p>
 </section>
 
   </article>
@@ -97,6 +115,17 @@ import { site } from '../lib/site'
     display: flex;
     justify-content: flex-end;
     margin: 0 0 1.5rem;
+  }
+
+  .scaffold-note {
+    font-family: var(--font-mono);
+    font-size: var(--text-ui);
+    color: var(--mist);
+    opacity: 0.65;
+    padding: 0.5rem 0.75rem;
+    border-left: 2px solid var(--tile-border);
+    margin: 0.5rem 0;
+    max-width: none;
   }
 
   .download-btn {
@@ -233,7 +262,8 @@ import { site } from '../lib/site'
   }
 
   @media print {
-    .download-bar {
+    .download-bar,
+    .scaffold-note {
       display: none !important;
     }
     :global(.atmosphere) {
