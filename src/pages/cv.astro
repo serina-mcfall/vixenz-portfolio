@@ -158,27 +158,45 @@ import { site } from '../lib/site'
   <h2>Skills</h2>
   <dl class="skills">
     <div>
-      <dt>Frontend</dt>
-      <dd>React, JavaScript, TypeScript, Astro, CSS, semantic HTML, WCAG 2.2, W3C APG patterns</dd>
+      <dt>Core</dt>
+      <dd>
+        <ul class="skill-list">
+          <li>React</li>
+          <li>TypeScript / JavaScript</li>
+          <li>Node + Express</li>
+          <li>Knex + SQL (SQLite, Postgres)</li>
+          <li>HTML + CSS</li>
+          <li>WCAG 2.2 AA + W3C APG patterns</li>
+          <li>Playwright + axe-core</li>
+          <li>Git</li>
+          <li>Astro</li>
+          <li>Vite + Vitest</li>
+        </ul>
+      </dd>
     </div>
     <div>
-      <dt>Backend</dt>
-      <dd>Express, REST APIs, Integration testing</dd>
+      <dt>Familiar</dt>
+      <dd>
+        <ul class="skill-list">
+          <li>Tailwind CSS</li>
+          <li>Cloudflare Pages</li>
+          <li>Supabase (Auth + hosted Postgres)</li>
+          <li>MDX</li>
+        </ul>
+      </dd>
     </div>
     <div>
-      <dt>Databases</dt>
-      <dd>SQL (SQLite, Postgres via Supabase), schema design, Knex migrations + seeds, indexing strategies</dd>
-    </div>
-    <div>
-      <dt>Tooling</dt>
-      <dd>Vite, Vitest, Playwright, axe-core, Git, Cloudflare Pages, Vercel, Anthropic / OpenAI APIs (used in my Dev Academy ai-chatbot project)</dd>
-    </div>
-    <div>
-      <dt>Practice</dt>
-      <dd>TDD where it helps, scaffold-first learning, design-doc-driven work, accessibility audits. Currently learning: AI agent + worker patterns for the Learning Companion Project.</dd>
+      <dt>Learning next</dt>
+      <dd>
+        <ul class="skill-list">
+          <li>Cloudflare Workers (D1, KV, R2, Queues)</li>
+          <li>Agentic workflows</li>
+          <li>Anthropic + OpenAI APIs</li>
+          <li>Client-side E2EE</li>
+        </ul>
+      </dd>
     </div>
   </dl>
-  <p class="scaffold-note">[Phase 6 — regroup as Core / Familiar / Learning next; top 5 first; total 12–18 skills.]</p>
 </section>
 
 <section>
@@ -442,7 +460,7 @@ import { site } from '../lib/site'
 
   .cv dl div {
     display: grid;
-    grid-template-columns: 8rem 1fr;
+    grid-template-columns: 10rem 1fr;
     gap: 1rem;
     align-items: baseline;
   }
@@ -457,6 +475,25 @@ import { site } from '../lib/site'
 
   .cv dd {
     color: var(--moonlight);
+    max-width: none;
+  }
+
+  .cv .skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline;
+  }
+
+  .cv .skill-list li {
+    display: inline;
+    color: var(--moonlight);
+  }
+
+  .cv .skill-list li:not(:last-child)::after {
+    content: " · ";
+    color: var(--lotus);
+    padding: 0 0.15rem;
   }
 
   @media (max-width: 36rem) {
@@ -560,6 +597,9 @@ import { site } from '../lib/site'
       gap: 0.2rem;
     }
     .cv .role li::before {
+      color: #444;
+    }
+    .cv .skill-list li:not(:last-child)::after {
       color: #444;
     }
     .cv dl {
