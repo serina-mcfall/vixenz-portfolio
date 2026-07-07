@@ -40,23 +40,50 @@ import { site } from '../lib/site'
   <h2>Projects</h2>
   <ul class="projects">
     <li>
-      <strong>Atlas — visual concept library.</strong>
-      A bootcamp shell (<code>art-gallery</code>) reworked into a living, accessibility-first concept library. <a href={`${site.url}/work/atlas`}>vixenz.dev/work/atlas</a>
+      <h3>Moonlit Library</h3>
+      <p class="project-meta">
+        <a href="https://moonlit-library.onrender.com">moonlit-library.onrender.com</a>
+        <span aria-hidden="true"> · </span>
+        <a href="https://github.com/serina-mcfall/moonlit-library">github.com/serina-mcfall/moonlit-library</a>
+      </p>
+      <p><strong>Stack:</strong> Express + Knex + SQLite on the server and React + Vite on the client</p>
+      <p><strong>Role:</strong> Solo build</p>
+      <p><strong>Outcome:</strong> This was a Dev Academy challenge that earned three credentials (CP02 + WD03 + WD04). It's a personal library designed for how I read and has been deployed on Render.</p>
     </li>
     <li>
-      <strong>The MTG Project.</strong>
-      Eight design docs for a Commander deck-builder. Tech stack, schema, and architecture fully designed. <a href={`${site.url}/work/mtg-project`}>vixenz.dev/work/mtg-project</a>
+      <h3>Atlas: a visual concept library</h3>
+      <p class="project-meta">
+        <a href={`${site.url}/work/atlas`}>vixenz.dev/work/atlas</a>
+        <span aria-hidden="true"> · </span>
+        <a href="https://github.com/serina-mcfall/atlas">github.com/serina-mcfall/atlas</a>
+      </p>
+      <p><strong>Stack:</strong> React + Vite + TypeScript, Express + Knex + SQLite, MDX</p>
+      <p><strong>Role:</strong> Solo build (in progress)</p>
+      <p><strong>Outcome:</strong> This project was a rework of a Dev Academy challenge called Art Gallery. I have reworked it into an accessibility-first concept library that holds both concept sheets and reference sheets through kind-based routing. WCAG 2.2 AA is gated in Playwright tests. So far four concept sheets are shipped in the repo (React Components, How a database query travels, useState vs useReducer, and What aria-modal actually does), along with a Terminal reference sheet.</p>
     </li>
     <li>
-      <strong>Avalúne Compendium.</strong>
-      Express + Knex + SQLite practice backend with real worldbuilding canon. <a href={`${site.url}/work/avalune-compendium`}>vixenz.dev/work/avalune-compendium</a>
+      <h3>Kiwicom: a developer project discovery hub</h3>
+      <p class="project-meta">
+        <span class="deploy-note">not yet deployed</span>
+        <span aria-hidden="true"> · </span>
+        <a href="https://github.com/Oscar-Wakefield-Ngahuru-2026/Kiwicom">github.com/Oscar-Wakefield-Ngahuru-2026/Kiwicom</a>
+      </p>
+      <p><strong>Stack:</strong> React + Vite + TS + Tailwind, Node + Express + TS, PostgreSQL (Supabase auth), Knex</p>
+      <p><strong>Role:</strong> My role in this project was the git keeper of a 4-person team. I reviewed every PR, ran merges to Dev, and Resolved conflicts when they came about (luckily there were not many). 79 commits by the end, highest on the team.</p>
+      <p><strong>Outcome:</strong> This was our Final Dev Academy group project. Kiwicom was built as a community hub for devs and uni grads to find open source projects that they can learn from as well as participate in. It pulls from GitHub and filters by language or topic, and lets them save projects as bookmarks. They can also build a profile page and add their own open source projects. We were able to ship browse, login, project pages, profiles, bookmarks, and create-project. We had planned for Claude-powered README summaries and deployment but these did not land before the assignment ended. We will likely keep working on this project as a group when time allows. The editorial design system (Lexend + JetBrains Mono, cream and deep-sky palette) is a reusable frontend layer, which came from my own aesthetic.</p>
     </li>
     <li>
-      <strong>Realmstack.</strong>
-      A co-built project with my husband. Cloudflare Workers (D1, KV, R2), TypeScript. Doc-led planning phase — declaration, explainers, and research docs taking shape; implementation begins from there. <a href="https://realmstack.world">realmstack.world</a>
+      <h3>Realmstack</h3>
+      <p class="project-meta">
+        <span class="deploy-note">not deployed</span>
+        <span aria-hidden="true"> · </span>
+        <a href="https://github.com/Realmstacks/Realmstack">github.com/Realmstacks/Realmstack</a>
+      </p>
+      <p><strong>Stack:</strong> Cloudflare Workers (planning to bind D1, KV, R2, Queues), TypeScript. Rest of the stack still to be decided.</p>
+      <p><strong>Role:</strong> Co-built with my husband. Currently in doc-led planning phase.</p>
+      <p><strong>Outcome:</strong> This is a long-term worldbuilding project we are building together. We are in the declaration phase, so before code goes into the repo we have written the north-star vision, mapped out user flows and prior art, and done a deep encryption architecture research pass that pulled findings from multiple sources including Claude, ChatGPT, Gemini, Kimi, and Deepseek to help lock our decisions early. Client-side end-to-end encryption is the technical anchor for the whole thing. This project was born of my original plan of a World Bible for my writing but morphed into a project that can be used by writers, D&amp;D Dungeon masters, Game writers and the like: a place where they can build out their world, find resources, and connect with other like-minded individuals to help in their creative endeavours. Though this started as my brainchild, my husband has taken my initial vision and breathed life into it, making it what it will eventually become.</p>
     </li>
   </ul>
-  <p class="scaffold-note">[Phase 5 — rewrite each project entry with live+repo links, stack tags, role stated, outcome with number.]</p>
 </section>
 
 <section>
@@ -203,7 +230,7 @@ import { site } from '../lib/site'
   .cv .projects, .cv .other {
     list-style: none;
     display:grid;
-    gap:0.625rem
+    gap: 1.25rem;
 
   }
 
@@ -213,10 +240,42 @@ import { site } from '../lib/site'
 
   }
 
-  .cv .projects strong {
+  .cv .projects h3 {
     color: var(--moonlight);
+    font-size: 1rem;
     font-weight: 600;
-    
+    margin: 0 0 0.25rem;
+  }
+
+  .cv .project-meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--mist);
+    margin: 0 0 0.5rem;
+    max-width: none;
+  }
+
+  .cv .project-meta .deploy-note {
+    opacity: 0.75;
+  }
+
+  .cv .projects p {
+    margin: 0 0 0.35rem;
+    max-width: none;
+  }
+
+  .cv .projects p:last-child {
+    margin-bottom: 0;
+  }
+
+  .cv .projects strong {
+    color: var(--lotus);
+    font-weight: 600;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-right: 0.25rem;
   }
 
   .cv section {
@@ -316,7 +375,21 @@ import { site } from '../lib/site'
       margin-bottom: 0.5rem;
     }
     .cv .projects, .cv .other {
-      gap: 0.5rem;
+      gap: 0.75rem;
+    }
+    .cv .projects h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.15rem;
+    }
+    .cv .project-meta {
+      color: #444;
+      margin-bottom: 0.25rem;
+    }
+    .cv .projects p {
+      margin-bottom: 0.2rem;
+    }
+    .cv .projects strong {
+      color: #444;
     }
     .cv dl {
       gap: 0.5rem;
