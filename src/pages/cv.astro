@@ -37,6 +37,22 @@ import { site } from '../lib/site'
   <h2>Experience</h2>
 
   <article class="job">
+    <h3>Dev Academy Aotearoa</h3>
+    <p class="job-meta">Auckland, NZ (Hybrid) <span aria-hidden="true"> · </span> Apr 2026 to Present</p>
+
+    <div class="role">
+      <h4>Software Developer <span class="role-dates">Apr 2026 to Present</span></h4>
+      <ul>
+        <li>Shipped three solo builds during the bootcamp: Moonlit Library (deployed on Render), Atlas (a visual concept library reworked from the bootcamp art-gallery brief), and vixenz.dev (this portfolio, built in Astro on Cloudflare Pages).</li>
+        <li>Shipped accessibility-first from the brief on every project: WCAG audits before merge, keyboard navigation + ARIA + focus management wired in from the start.</li>
+        <li>Gave the cohort lightning talk on accessibility: my case for treating a11y as a design decision, not decoration.</li>
+        <li>Learned to work with Claude Code as a pair and review partner: how to direct AI, question its output, and verify what it ships.</li>
+        <li>Passed all 11 assessment credentials, several ahead of deadline.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="job">
     <h3>Bachcare, The Holiday Home Company</h3>
     <p class="job-meta">Auckland, NZ (Hybrid) <span aria-hidden="true"> · </span> Dec 2021 to Apr 2026</p>
 
@@ -201,14 +217,28 @@ import { site } from '../lib/site'
 
 <section>
   <h2>Education</h2>
-  <p><strong>Dev Academy Aotearoa — AI Launchpad</strong> — 16-week agentic coding programme: multi-agent workflows on production codebases, industry placement with a NZ tech company. 27 July – 13 November 2026.</p>
-  <p><strong>Dev Academy Aotearoa</strong> — full-stack web development bootcamp. Completed 2026.</p>
-  <p class="scaffold-note">[Phase 7 — add high school + partial fine arts degree; keep brief since Experience is rich.]</p>
+
+  <article class="edu">
+    <h3>Dev Academy Aotearoa</h3>
+    <p class="edu-meta">Auckland, NZ <span aria-hidden="true"> · </span> 2026</p>
+    <p>Full-stack web development bootcamp + AI Launchpad.</p>
+  </article>
+
+  <article class="edu">
+    <h3>Emily Carr University of Art and Design</h3>
+    <p class="edu-meta">Vancouver, BC, Canada <span aria-hidden="true"> · </span> 1998 to 1999</p>
+    <p>Foundations Program (1 year, not completed).</p>
+  </article>
+
+  <article class="edu">
+    <h3>North Delta Senior Secondary</h3>
+    <p class="edu-meta">North Delta, BC, Canada <span aria-hidden="true"> · </span> Graduated 1998</p>
+  </article>
 </section>
 
 <section>
   <h2>Interests</h2>
-  <p class="scaffold-note">[Phase 7 — art (Diamond Dots, resin, painting, digital), writing + worldbuilding (Avalune, D&amp;D, Magic), gaming, reading. Serina writes.]</p>
+  <p>Art in its many forms is my safe place; it's the one place that I feel stress fall away and calm come back. I use it to refill my spoons and ground myself. Painting, digital art, Diamond dots, resin. Writing and worldbuilding sit alongside Art, and I'm currently reimagining my writing world. D&amp;D as well as Magic the Gathering scratch the same worldbuilding itch. I read and game. My current game obsession is Where Winds Meet, and I'm happy to talk about it all day if given a chance. I love watching TV and Movies, especially Chinese Dramas and Korean Dramas.</p>
 </section>
 
 <section>
@@ -453,6 +483,35 @@ import { site } from '../lib/site'
     font-weight: 700;
   }
 
+  .cv .edu {
+    margin-bottom: 1rem;
+  }
+
+  .cv .edu:last-child {
+    margin-bottom: 0;
+  }
+
+  .cv .edu h3 {
+    color: var(--moonlight);
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.15rem;
+  }
+
+  .cv .edu-meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--mist);
+    margin: 0 0 0.25rem;
+    max-width: none;
+  }
+
+  .cv .edu p:last-child {
+    color: var(--mist);
+    margin: 0;
+    max-width: none;
+  }
+
   .cv dl {
     display: grid;
     gap: 1rem;
@@ -600,6 +659,19 @@ import { site } from '../lib/site'
       color: #444;
     }
     .cv .skill-list li:not(:last-child)::after {
+      color: #444;
+    }
+    .cv .edu {
+      margin-bottom: 0.6rem;
+    }
+    .cv .edu h3 {
+      font-size: 0.95rem;
+    }
+    .cv .edu-meta {
+      color: #444;
+      margin-bottom: 0.15rem;
+    }
+    .cv .edu p:last-child {
       color: #444;
     }
     .cv dl {
