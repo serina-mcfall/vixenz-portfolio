@@ -6,31 +6,31 @@ import { site } from '../lib/site'
 <Page title="CV · Serina McFall" description="Curriculum vitae for Serina McFall: software developer, accessibility-first, Auckland-based.">
   <article class="cv">
     <p class="download-bar">
-      <a href="/serina-mcfall-cv.pdf" download="serina-mcfall-cv.pdf" class="download-btn">
+      <a href="/serina-mcfall-cv.pdf" download="Serina McFall CV July 2026.pdf" class="download-btn">
         Download CV (PDF)
       </a>
     </p>
-    <header class="cv-head">
-  <div>
-    <h1>Serina McFall</h1>
-    <p class="role">Software Developer · accessibility-first · neurospicy</p>
-  </div>
-  <ul class="contact">
-    <li><a href={site.url}>vixenz.dev</a></li>
-    <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
-    <li><a href="tel:+64214672266">+64 21 467 266</a></li>
-    <li><a href={site.github}>GitHub</a></li>
-    <li><a href={site.linkedin}>LinkedIn</a></li>
-    <li>{site.location}</li>
-    <li>NZ citizen</li>
-  </ul>
-</header>
+    <div class="cv-layout">
+      <aside class="cv-sidebar">
+        <h1>Serina McFall</h1>
+        <p class="role">Software Developer</p>
+        <p class="role-sub">accessibility-first · neurospicy</p>
+        <ul class="contact">
+          <li><a href={site.url}>vixenz.dev</a></li>
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li><a href="tel:+64214672266">+64 21 467 266</a></li>
+          <li><a href={site.github}>GitHub</a></li>
+          <li><a href={site.linkedin}>LinkedIn</a></li>
+          <li>{site.location}</li>
+          <li>NZ citizen</li>
+        </ul>
+      </aside>
+
+      <div class="cv-body">
 
  <section>
   <h2>Summary</h2>
-  <p>Software Developer. I've made the shift from nearly a decade in customer service to a career in tech.</p>
-  <p>I came into Dev Academy with no prior coding knowledge. The biggest thing I've learned is how to code, and I've also learned to better understand myself, my needs, and how I think. As well as Human Skills: the empathy and understanding others I built up over a decade in customer service, and the team craft I found in Dev Academy. Tech is the industry I can see still being viable in the next 20 years, and I love it: server-side gives structure to the side of my brain that needs it, and my artistic side loves the design of the front end. I found the home I did not know I was looking for.</p>
-  <p>I'm neurodivergent, and I've learned this is not a weakness but is in fact a strength I can use. I plan and doc before I write code, I gate WCAG 2.2 AA on my own projects, and I start Dev Academy's AI Launchpad on 27 July 2026: 16 weeks of agentic coding plus industry placement.</p>
+  <p>Software Developer. Shifted from nearly a decade in customer service to a career in tech via Dev Academy. Server-side gives structure to the part of my brain that needs it; the front end gives an outlet to my artistic side. I found the home I did not know I was looking for. Neurodivergent, and I've learned this is not a weakness but is in fact a strength I can use. I plan and doc before I write code, gate WCAG 2.2 AA on my own projects, and start Dev Academy's AI Launchpad on 27 July 2026.</p>
 </section>
 
 <section>
@@ -43,10 +43,9 @@ import { site } from '../lib/site'
     <div class="role">
       <h4>Software Developer <span class="role-dates">Apr 2026 to Present</span></h4>
       <ul>
-        <li>Shipped three solo builds during the bootcamp: Moonlit Library (deployed on Render), Atlas (a visual concept library reworked from the bootcamp art-gallery brief), and vixenz.dev (this portfolio, built in Astro on Cloudflare Pages).</li>
-        <li>Shipped accessibility-first from the brief on every project: WCAG audits before merge, keyboard navigation + ARIA + focus management wired in from the start.</li>
-        <li>Gave the cohort lightning talk on accessibility: my case for treating a11y as a design decision, not decoration.</li>
-        <li>Learned to work with Claude Code as a pair and review partner: how to direct AI, question its output, and verify what it ships.</li>
+        <li>Shipped three solo builds: Moonlit Library (deployed on Render), Atlas (accessibility-first concept library reworked from the bootcamp brief), and vixenz.dev (this portfolio, Astro on Cloudflare Pages).</li>
+        <li>Accessibility-first on every project: WCAG audits before merge, keyboard + ARIA + focus management wired in from the start. Gave cohort lightning talk on treating a11y as a design decision.</li>
+        <li>Learned to work with Claude Code as a pair and review partner: how to direct AI, question its output, verify what it ships.</li>
         <li>Passed all 11 assessment credentials, several ahead of deadline.</li>
       </ul>
     </div>
@@ -57,27 +56,12 @@ import { site } from '../lib/site'
     <p class="job-meta">Auckland, NZ (Hybrid) <span aria-hidden="true"> · </span> Dec 2021 to Apr 2026</p>
 
     <div class="role">
-      <h4>Feedback and Owner Operations Specialist <span class="role-dates">Dec 2022 to Apr 2026</span></h4>
+      <h4>Feedback and Owner Operations Specialist <span class="role-dates">promoted through Booking Management and Reservations Specialist</span></h4>
       <ul>
-        <li>Owned guest feedback resolution, sitting between the guest's needs and the owner's constraints to land solutions that worked for both.</li>
-        <li>Trained new team members on how to run feedback: what the role actually involves, and how to stay empathetic to guests who are frustrated.</li>
-        <li>Supported the owner relations team day to day: maintenance escalations, guidance for owners on improving their guest stays, and general problem-solving.</li>
-      </ul>
-    </div>
-
-    <div class="role">
-      <h4>Booking Management Specialist <span class="role-dates">mid-2022 to Dec 2022</span></h4>
-      <ul>
-        <li>Managed in-stay needs for holiday-home guests: maintenance escalations, booking changes, and cancellations. Coordinated with third-party providers to keep stays on track.</li>
-        <li>Handled the complex booking scenarios other agents escalated: last-minute swaps, multi-property groups, disputed changes.</li>
-      </ul>
-    </div>
-
-    <div class="role">
-      <h4>Reservations Specialist <span class="role-dates">Dec 2021 to mid-2022</span></h4>
-      <ul>
-        <li>Booked guests into properties across Bachcare's holiday-home portfolio, matching their preferences to what each property could actually deliver.</li>
-        <li>Gave pre-stay support so guests arrived knowing what to expect: property specifics, access, and local context.</li>
+        <li>Owned guest feedback resolution across a 4.5-year progression, sitting between guest needs and owner constraints to land solutions that worked for both.</li>
+        <li>Trained new team members on feedback methodology: what the role actually involves, and how to stay empathetic to guests who are frustrated.</li>
+        <li>Supported the owner relations team day to day: maintenance escalations, guidance for owners, general problem-solving.</li>
+        <li>Earlier in tenure: managed in-stay needs (maintenance, changes, cancellations) and complex bookings; ran pre-stay support and property matching.</li>
       </ul>
     </div>
   </article>
@@ -89,9 +73,8 @@ import { site } from '../lib/site'
     <div class="role">
       <h4>Claims Coordinator</h4>
       <ul>
-        <li>Ran the warranty claims lifecycle for JB Hi-Fi's faulty products: raised claims, handled supplier paperwork, and saw them through to settlement so JB got their money back.</li>
-        <li>Owned salvage operations for TIC's NZ division: ordered containers, built picklists, and coordinated pickup and shipping to the Auckland port. Faulty hardware went to AU for sale overseas as parts.</li>
-        <li>Day to day: TIC Reporter (a bespoke Java logistics tool), Excel, and Word. Handled logistics coordination with couriers and freight-forwarders.</li>
+        <li>Ran the warranty claims lifecycle for JB Hi-Fi's faulty products: raised claims, handled supplier paperwork, saw them through to settlement.</li>
+        <li>Owned salvage operations for TIC's NZ division: ordered containers, built picklists, coordinated pickup and shipping to the Auckland port for hardware bound for AU parts resale.</li>
       </ul>
     </div>
   </article>
@@ -101,20 +84,11 @@ import { site } from '../lib/site'
     <p class="job-meta">Auckland (Sylvia Park, then Botany) <span aria-hidden="true"> · </span> Nov 2010 to May 2018</p>
 
     <div class="role">
-      <h4>Counter Coordinator <span class="role-dates">Botany <span aria-hidden="true"> · </span> ~Nov 2013 to May 2018</span></h4>
+      <h4>Counter Coordinator <span class="role-dates">promoted from Customer Service Representative, 4.5 years as Coordinator</span></h4>
       <ul>
-        <li>Led the counter team of 5: ran schedules, did one-on-ones, and was the person they came to when they needed a manager to step in.</li>
-        <li>Bridged counter staff and management as their in-between: took team concerns up and management decisions back down.</li>
-        <li>Kept the counter running day to day alongside the team-lead work: customer service, POS, cash handling, and the escalations that came my way.</li>
-      </ul>
-    </div>
-
-    <div class="role">
-      <h4>Customer Service Representative <span class="role-dates">Sylvia Park, then Botany <span aria-hidden="true"> · </span> Nov 2010 to ~Nov 2013</span></h4>
-      <ul>
-        <li>Joined the Sylvia Park store as part of the team that opened it on day one, then transferred to Botany two years in.</li>
-        <li>Travelled to Christchurch for a week to help set up and open the new store there, on the strength of my Sylvia Park launch experience.</li>
-        <li>Day to day: counter sales, POS, cash handling, finance applications, and returns coordination with distributors.</li>
+        <li>Led the counter team of 5 for 4.5 years at Botany: schedules, one-on-ones, escalation liaison between team and management.</li>
+        <li>Joined Sylvia Park on opening day (2010) and transferred to Botany in 2012; travelled to Christchurch for a week to help open that store on the strength of Sylvia Park launch experience.</li>
+        <li>Counter operations throughout: sales, POS, cash handling, finance applications, returns coordination with distributors.</li>
       </ul>
     </div>
   </article>
@@ -132,7 +106,7 @@ import { site } from '../lib/site'
       </p>
       <p><strong>Stack:</strong> Express + Knex + SQLite on the server and React + Vite on the client</p>
       <p><strong>Role:</strong> Solo build</p>
-      <p><strong>Outcome:</strong> This was a Dev Academy challenge that earned three credentials (CP02 + WD03 + WD04). It's a personal library designed for how I read and has been deployed on Render.</p>
+      <p><strong>Outcome:</strong> Dev Academy challenge, earned three credentials. Personal library designed for how I read, deployed on Render.</p>
     </li>
     <li>
       <h3>Atlas: a visual concept library</h3>
@@ -143,7 +117,7 @@ import { site } from '../lib/site'
       </p>
       <p><strong>Stack:</strong> React + Vite + TypeScript, Express + Knex + SQLite, MDX</p>
       <p><strong>Role:</strong> Solo build (in progress)</p>
-      <p><strong>Outcome:</strong> This project was a rework of a Dev Academy challenge called Art Gallery. I have reworked it into an accessibility-first concept library that holds both concept sheets and reference sheets through kind-based routing. WCAG 2.2 AA is gated in Playwright tests. So far four concept sheets are shipped in the repo (React Components, How a database query travels, useState vs useReducer, and What aria-modal actually does), along with a Terminal reference sheet.</p>
+      <p><strong>Outcome:</strong> Reworked a Dev Academy art-gallery brief into an accessibility-first concept library with kind-based routing. WCAG 2.2 AA gated in Playwright tests. Four concept sheets and a Terminal reference sheet shipped.</p>
     </li>
     <li>
       <h3>Kiwicom: a developer project discovery hub</h3>
@@ -154,7 +128,7 @@ import { site } from '../lib/site'
       </p>
       <p><strong>Stack:</strong> React + Vite + TS + Tailwind, Node + Express + TS, PostgreSQL (Supabase auth), Knex</p>
       <p><strong>Role:</strong> My role in this project was the git keeper of a 4-person team. I reviewed every PR, ran merges to Dev, and Resolved conflicts when they came about (luckily there were not many). 79 commits by the end, highest on the team.</p>
-      <p><strong>Outcome:</strong> This was our Final Dev Academy group project. Kiwicom was built as a community hub for devs and uni grads to find open source projects that they can learn from as well as participate in. It pulls from GitHub and filters by language or topic, and lets them save projects as bookmarks. They can also build a profile page and add their own open source projects. We were able to ship browse, login, project pages, profiles, bookmarks, and create-project. We had planned for Claude-powered README summaries and deployment but these did not land before the assignment ended. We will likely keep working on this project as a group when time allows. The editorial design system (Lexend + JetBrains Mono, cream and deep-sky palette) is a reusable frontend layer, which came from my own aesthetic.</p>
+      <p><strong>Outcome:</strong> Final Dev Academy group project. Community hub for devs to find open-source projects: GitHub pulls filtered by language/topic, bookmarks, profiles, create-project. Editorial design system (Lexend + JetBrains Mono, cream and deep-sky) from my aesthetic. Claude-powered summaries + deployment planned but did not land in time.</p>
     </li>
     <li>
       <h3>Realmstack</h3>
@@ -165,7 +139,7 @@ import { site } from '../lib/site'
       </p>
       <p><strong>Stack:</strong> Cloudflare Workers (planning to bind D1, KV, R2, Queues), TypeScript. Rest of the stack still to be decided.</p>
       <p><strong>Role:</strong> Co-built with my husband. Currently in doc-led planning phase.</p>
-      <p><strong>Outcome:</strong> This is a long-term worldbuilding project we are building together. We are in the declaration phase, so before code goes into the repo we have written the north-star vision, mapped out user flows and prior art, and done a deep encryption architecture research pass that pulled findings from multiple sources including Claude, ChatGPT, Gemini, Kimi, and Deepseek to help lock our decisions early. Client-side end-to-end encryption is the technical anchor for the whole thing. This project was born of my original plan of a World Bible for my writing but morphed into a project that can be used by writers, D&amp;D Dungeon masters, Game writers and the like: a place where they can build out their world, find resources, and connect with other like-minded individuals to help in their creative endeavours. Though this started as my brainchild, my husband has taken my initial vision and breathed life into it, making it what it will eventually become.</p>
+      <p><strong>Outcome:</strong> Long-term worldbuilding platform for writers, D&amp;D masters, and game writers. Doc-led planning phase: north-star vision, user flows, and multi-source encryption architecture research (Claude, ChatGPT, Gemini, Kimi, Deepseek) locked before implementation. Client-side E2EE is the technical anchor.</p>
     </li>
   </ul>
 </section>
@@ -238,14 +212,16 @@ import { site } from '../lib/site'
 
 <section>
   <h2>Interests</h2>
-  <p>Art in its many forms is my safe place; it's the one place that I feel stress fall away and calm come back. I use it to refill my spoons and ground myself. Painting, digital art, Diamond dots, resin. Writing and worldbuilding sit alongside Art, and I'm currently reimagining my writing world. D&amp;D as well as Magic the Gathering scratch the same worldbuilding itch. I read and game. My current game obsession is Where Winds Meet, and I'm happy to talk about it all day if given a chance. I love watching TV and Movies, especially Chinese Dramas and Korean Dramas.</p>
+  <p>Art in its many forms is my safe place: painting, digital art, Diamond dots, resin. Writing and worldbuilding sit alongside; D&amp;D and Magic the Gathering scratch the same itch. Current game obsession: Where Winds Meet. Reading, Chinese and Korean Dramas.</p>
 </section>
 
-<section>
+<section class="references">
   <h2>References</h2>
   <p>Available upon request.</p>
 </section>
 
+      </div>
+    </div>
   </article>
 </Page>
 
@@ -260,6 +236,70 @@ import { site } from '../lib/site'
     display: flex;
     justify-content: flex-end;
     margin: 0 0 1.5rem;
+  }
+
+  .cv-layout {
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    gap: 2rem;
+  }
+
+  .cv-sidebar {
+    color: var(--mist);
+  }
+
+  .cv-sidebar h1 {
+    font-size: 1.55rem;
+    line-height: 1.15;
+    color: var(--moonlight);
+    margin: 0 0 0.35rem;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+  }
+
+  .cv-sidebar .role {
+    color: var(--magnolia);
+    font-size: var(--text-ui);
+    margin: 0 0 0.25rem;
+  }
+
+  .cv-sidebar .role-sub {
+    color: var(--mist);
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    letter-spacing: 0.04em;
+    margin: 0 0 1.25rem;
+  }
+
+  .cv-sidebar .contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.25rem;
+    text-align: left;
+    font-size: var(--text-ui);
+    color: var(--mist);
+  }
+
+  .cv-sidebar .contact li {
+    max-width: none;
+  }
+
+  .cv-sidebar .contact a {
+    display: inline-block;
+    padding: 3px 0;
+    color: var(--moonlight);
+  }
+
+  @media (max-width: 42rem) {
+    .cv-layout {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .cv-sidebar .contact {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   .scaffold-note {
@@ -582,13 +622,22 @@ import { site } from '../lib/site'
     :global(body) {
       background: white !important;
       color: black !important;
-      font-size: 10pt;
-      line-height: 1.5;
+      font-size: 8pt;
+      line-height: 1.28;
     }
-    :global(body > header),
-    :global(body > footer),
+    @page {
+      margin: 10mm 12mm;
+    }
+    :global(body > .content-layer > header),
+    :global(body > .content-layer > footer),
     :global(.skip-link) {
       display: none !important;
+    }
+    :global(body > .content-layer),
+    :global(.page-inner) {
+      background: white !important;
+      padding: 0 !important;
+      max-width: 100% !important;
     }
     :global(main) {
       padding: 0 !important;
@@ -596,86 +645,187 @@ import { site } from '../lib/site'
     .cv {
       max-width: 100%;
     }
+    .cv-layout {
+      grid-template-columns: 11rem 1fr;
+      gap: 1.25rem;
+    }
+    .cv-sidebar h1 {
+      font-size: 1.35rem;
+      color: #1a1a1a;
+      margin-bottom: 0.25rem;
+    }
+    .cv-sidebar .role {
+      color: #333;
+      font-size: 9pt;
+      margin-bottom: 0.15rem;
+    }
+    .cv-sidebar .role-sub {
+      color: #444;
+      font-size: 7.5pt;
+      margin-bottom: 0.7rem;
+    }
+    .cv-sidebar .contact {
+      font-size: 8pt;
+      gap: 0.15rem;
+    }
+    .cv-sidebar .contact a {
+      color: #1a1a1a;
+      padding: 0;
+    }
     .cv a {
       color: #1a1a1a;
       border-bottom: none;
     }
     .cv-head {
-      padding-bottom: 0.75rem;
-      margin-bottom: 1rem;
+      padding-bottom: 0.35rem;
+      margin-bottom: 0.4rem;
     }
     .cv-head h1 {
-      font-size: 1.65rem;
+      font-size: 1.35rem;
+      margin-bottom: 0.1rem;
+    }
+    .cv .role,
+    .cv .contact,
+    .cv-head p {
+      font-size: 8.5pt;
     }
     .cv section {
-      margin: 0.9rem 0;
+      margin: 0.3rem 0;
+      page-break-inside: avoid;
     }
     .cv h2 {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.15rem;
+      font-size: 8pt;
     }
     .cv .projects, .cv .other {
-      gap: 0.75rem;
+      gap: 0.3rem;
+    }
+    .cv .projects li {
+      page-break-inside: avoid;
     }
     .cv .projects h3 {
-      font-size: 0.95rem;
-      margin-bottom: 0.15rem;
+      font-size: 0.85rem;
+      margin-bottom: 0.05rem;
     }
     .cv .project-meta {
       color: #444;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.1rem;
+      font-size: 7.5pt;
     }
     .cv .projects p {
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.05rem;
     }
     .cv .projects strong {
       color: #444;
+      font-size: 6.5pt;
+    }
+    .cv .projects li p:nth-child(3),
+    .cv .projects li p:nth-child(4) {
+      display: inline;
+    }
+    .cv .projects li p:nth-child(3)::after {
+      content: " · ";
+      color: #444;
+      padding: 0 0.15rem;
+    }
+    .cv .projects li p:nth-child(5) {
+      display: block;
+      margin-top: 0.15rem;
     }
     .cv .job {
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.35rem;
+      page-break-inside: avoid;
     }
     .cv .job h3 {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+      margin-bottom: 0.05rem;
     }
     .cv .job-meta {
       color: #444;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.15rem;
+      font-size: 7.5pt;
     }
     .cv .role {
-      margin-bottom: 0.5rem;
-      padding-left: 0.5rem;
+      margin-bottom: 0.2rem;
+      padding-left: 0.35rem;
       border-left-color: #ccc;
     }
     .cv .role h4 {
-      font-size: 0.9rem;
-      margin-bottom: 0.2rem;
+      font-size: 0.85rem;
+      margin-bottom: 0.05rem;
+      gap: 0.3rem;
     }
     .cv .role-dates {
       color: #444;
+      font-size: 7.5pt;
     }
     .cv .role ul {
-      gap: 0.2rem;
+      gap: 0.05rem;
+    }
+    .cv .role li {
+      padding-left: 0.6rem;
     }
     .cv .role li::before {
       color: #444;
+    }
+    .cv .job:last-child,
+    .cv .projects li:last-child,
+    .cv .role:last-child,
+    .cv .edu:last-child {
+      margin-bottom: 0;
     }
     .cv .skill-list li:not(:last-child)::after {
       color: #444;
     }
     .cv .edu {
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.2rem;
+      page-break-inside: avoid;
     }
     .cv .edu h3 {
-      font-size: 0.95rem;
+      font-size: 0.85rem;
+      margin-bottom: 0.02rem;
     }
     .cv .edu-meta {
       color: #444;
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.05rem;
+      font-size: 7.5pt;
+    }
+    .cv .edu p:last-child {
+      margin: 0;
+    }
+    .cv p {
+      margin-bottom: 0.2rem;
+    }
+    .cv p:last-child {
+      margin-bottom: 0;
+    }
+    .cv .references {
+      display: none;
+    }
+    .cv .contact {
+      font-size: 8pt;
+    }
+    .cv .contact a {
+      padding: 1px 0;
+    }
+    .cv-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
     }
     .cv .edu p:last-child {
       color: #444;
     }
     .cv dl {
-      gap: 0.5rem;
+      gap: 0.3rem;
+    }
+    .cv dl div {
+      grid-template-columns: 1fr;
+      gap: 0.1rem;
+    }
+    .cv dt {
+      font-size: 7pt;
+      margin-bottom: 0.1rem;
     }
   }
 
