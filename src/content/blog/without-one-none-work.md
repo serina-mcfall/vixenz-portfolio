@@ -1,6 +1,6 @@
 ---
 title: 'Without one, none of them work'
-summary: 'How my emotion, my learning, and my problem-solving hold each other up — and what that lens does to every project I touch.'
+summary: 'How my emotion, my learning, and my problem-solving hold each other up, and what that lens does to every project I touch.'
 published: '2026-06-16'
 tags: ['neurodiversity', 'audhd', 'reflective', 'emotional-intelligence', 'workplace']
 ---
@@ -13,7 +13,7 @@ Emotion. Learning. Problem-solving. I used to think of them as three separate sk
 
 That is not how my brain has them organised.
 
-For me, they are one system. If I cannot read my own emotional state, I cannot tell whether the wall in front of me is a *technical* wall or a *me* wall — and the fix is completely different for each. If I have not built the neuroplasticity to notice when a learning pattern is failing, my problem-solving will loop on the same wrong approach. If my problem-solving has no exit ramp into "stop, breathe, name what you are feeling," I will burn the day on something a five-minute pause would have unstuck.
+For me, they are one system. If I cannot read my own emotional state, I cannot tell whether the wall in front of me is a *technical* wall or a *me* wall, and the fix is completely different for each. If I have not built the neuroplasticity to notice when a learning pattern is failing, my problem-solving will loop on the same wrong approach. If my problem-solving has no exit ramp into "stop, breathe, name what you are feeling," I will burn the day on something a five-minute pause would have unstuck.
 
 They are not three skills. They are one skill with three faces.
 
@@ -53,10 +53,10 @@ The benefit is that when I do find the answer, it is mine. I know exactly what s
 
 The hardest part of this system, honestly, is making it legible to other people. Tech is a team sport. The pause I need to name what I am feeling is invisible to the person waiting on my reply in Slack. The library of self-knowledge I am building is in my own private vocabulary.
 
-I will need to try that little extra harder to make sure I am understanding the people around me, and helping in a way that is conducive to the work environment. That is the next-decade project — translating the way my brain works into shapes the people I work with can read at a glance, without me having to over-explain or under-deliver.
+I will need to try that little extra harder to make sure I am understanding the people around me, and helping in a way that is conducive to the work environment. That is the next-decade project: translating the way my brain works into shapes the people I work with can read at a glance, without me having to over-explain or under-deliver.
 
 I do not have this all figured out. I am writing this from the middle of the figuring-out, not from the other side of it.
 
-If you are reading this and any of it lands — the without-one-none-work thread, the mission lens, the noticing, the costly pause before naming a feeling — I think you might be one of mine. And if you are a team lead reading this thinking about whether someone like me would fit on your team: the honest answer is that someone like me will work very hard for the people you build for, and will keep working on the parts that make it easier to work with the rest of the team.
+If you are reading this and any of it lands (the without-one-none-work thread, the mission lens, the noticing, the costly pause before naming a feeling), I think you might be one of mine. And if you are a team lead reading this thinking about whether someone like me would fit on your team: the honest answer is that someone like me will work very hard for the people you build for, and will keep working on the parts that make it easier to work with the rest of the team.
 
 The whole thing is one system. I would not trade it for anything.

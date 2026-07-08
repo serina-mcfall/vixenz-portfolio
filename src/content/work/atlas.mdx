@@ -1,5 +1,5 @@
 ---
-title: 'Atlas — a visual concept library'
+title: 'Atlas: a visual concept library'
 ord: 'I'
 summary: 'I took my bootcamp art-gallery, gave it a real purpose, and designed it accessibility-first from the brief. Here is what changed, why, and where it is going next.'
 status: 'draft'
@@ -11,13 +11,13 @@ updated: '2026-06-16'
 
 Art-gallery was a bootcamp project. Vite + React + TypeScript client, Express + TypeScript server, a static data file of artworks. I built it to spec, ran a WAVE audit on it after the fact, fixed what the audit found. Then I let it sit. It had no purpose beyond demonstrating that I could wire up React Query.
 
-Atlas is what art-gallery becomes when it grows up. Same shape — a gallery of cards, a detail page per item — but the items are concepts I'm learning, the cards are diagrams I've drawn, and accessibility is the brief, not the audit-after-the-fact.
+Atlas is what art-gallery becomes when it grows up. Same shape (a gallery of cards, a detail page per item), but the items are concepts I'm learning, the cards are diagrams I've drawn, and accessibility is the brief, not the audit-after-the-fact.
 
-## The stack — and what stayed
+## The stack: and what stayed
 
-Atlas keeps the bootcamp stack: React + Vite + TypeScript on the client, Express + TypeScript on the server, SQLite + Knex for the data layer (added in Phase 2), Vitest for tests. I considered swapping for a static-site generator — Astro especially — because Atlas's content shape would suit it. I chose to keep the React stack instead.
+Atlas keeps the bootcamp stack: React + Vite + TypeScript on the client, Express + TypeScript on the server, SQLite + Knex for the data layer (added in Phase 2), Vitest for tests. I considered swapping for a static-site generator (Astro especially) because Atlas's content shape would suit it. I chose to keep the React stack instead.
 
-The conversion is the point. Replacing the stack would have erased the lineage from `art-gallery` to Atlas — the git history, the test-by-test refactor, the model rename that touches every layer. Those are the case study. A from-scratch rebuild would have been faster but it would have been a different project.
+The conversion is the point. Replacing the stack would have erased the lineage from `art-gallery` to Atlas: the git history, the test-by-test refactor, the model rename that touches every layer. Those are the case study. A from-scratch rebuild would have been faster but it would have been a different project.
 
 What changed was the shape, not the stack. Artwork became Concept. Image URL became diagram URL. Comments became related-concept edges. License became topic. A new `explanation` field carries the body text. Tests stayed green at every step.
 
@@ -27,29 +27,29 @@ I am at my happiest in the schema layer. There is something about getting the mo
 
 Atlas's data layer is written by hand: Express + Knex + SQLite. No ORM magic. The reason is the same reason I started the Avalúne Compendium: Supabase hides the relational workflow from me, and I want to learn it by wiring it up.
 
-The schema is small but earns each table. Concepts, topics, tags, concept-tag joins, related-concept edges. Each table passes the drawer test: one row per instance, looked up one at a time, linked to from other records. Things that fail the test — like a concept's summary or explanation — stay as flat fields on the concept row.
+The schema is small but earns each table. Concepts, topics, tags, concept-tag joins, related-concept edges. Each table passes the drawer test: one row per instance, looked up one at a time, linked to from other records. Things that fail the test (like a concept's summary or explanation) stay as flat fields on the concept row.
 
 The migration ran clean on the first try. The seeds gave the API real data to return. The server tests went green against a real in-memory SQLite instance, not a mock. That last bit matters: a passing mocked test would have told me nothing about whether my joins actually work.
 
 ## Accessibility, designed in not bolted on
 
-In my bootcamp art-gallery project, accessibility was an audit I ran at the end. For Atlas, it is the brief — and React makes it easier to get wrong than right, so the rules are explicit.
+In my bootcamp art-gallery project, accessibility was an audit I ran at the end. For Atlas, it is the brief, and React makes it easier to get wrong than right, so the rules are explicit.
 
 What that looks like in the code:
 
 - Semantic landmarks on every page (`<header>`, `<main>`, `<nav>`, `<footer>`) so screen-reader users can skip-navigate.
-- A visible focus ring on every interactive element via `:focus-visible` — not just the default browser outline.
+- A visible focus ring on every interactive element via `:focus-visible`, not just the default browser outline.
 - ARIA labels where the visual cue does not carry the meaning (`aria-label="Related concepts"` on a nav that is otherwise just a row of links).
 - Heading hierarchy preserved: one `<h1>` per page, `<h2>` for sections, `<h3>` for card titles. No ranks skipped.
 - The dyslexia ruleset I live by, baked into the design tokens: Lexend Variable as the body face, 1.6 line-height, 66ch maximum reading width, no italics in body text, links emphasised by colour *and* weight (never colour alone).
-- `prefers-reduced-motion: reduce` honoured at the root — all transitions collapse to 0.01ms when the user has asked.
-- Reading order in the concept-sheet DOM matches the visual flow on both desktop and mobile — no CSS `order:` reshuffling that would make screen-reader linearisation disagree with what eyes see.
+- `prefers-reduced-motion: reduce` honoured at the root: all transitions collapse to 0.01ms when the user has asked.
+- Reading order in the concept-sheet DOM matches the visual flow on both desktop and mobile, no CSS `order:` reshuffling that would make screen-reader linearisation disagree with what eyes see.
 
 Designed in. Not bolted on.
 
 ## A library of coloured shelves
 
-The visual identity for Atlas came out of the Phase 3 brainstorm. The original plan called for a single accent colour on a dark canvas — coherent with my Moonlit Library project, which uses gold on navy. Halfway through choosing the accent I asked: what if each *topic* gets its own colour, and a concept sheet wears its topic's colour throughout?
+The visual identity for Atlas came out of the Phase 3 brainstorm. The original plan called for a single accent colour on a dark canvas (coherent with my Moonlit Library project, which uses gold on navy). Halfway through choosing the accent I asked: what if each *topic* gets its own colour, and a concept sheet wears its topic's colour throughout?
 
 That is what shipped. Six AAA-contrast accent colours, one per topic: cyan for React, coral for databases, lavender for JavaScript, mint for TypeScript, apricot for CSS, pink for accessibility. The Atlas wordmark and global chrome stay neutral cream so the topic colours dominate.
 
@@ -59,8 +59,8 @@ The metaphor is library-section spines. Walk past the React shelf, the colour te
 
 Phases 1 through 3 have shipped. The rename is done, the data layer is real, the visual identity is in. What remains:
 
-1. **Author four to six real concept sheets** — diagrams I draw myself in SVG, explanations that read like notes-to-future-me, related-concept edges that turn the library into a graph. Candidates: React Components, How a database query travels, useState vs useReducer, What `aria-modal` actually does, Express middleware order, Knex migrations vs seeds.
+1. **Author four to six real concept sheets:** diagrams I draw myself in SVG, explanations that read like notes-to-future-me, related-concept edges that turn the library into a graph. Candidates: React Components, How a database query travels, useState vs useReducer, What `aria-modal` actually does, Express middleware order, Knex migrations vs seeds.
 2. **Deploy Atlas as a running app** so the live URL works cold for whoever follows this case study.
-3. **Publish the static counterpart at `vixenz.dev/atlas/`** — Astro MDX content collection using the same design tokens, parallel implementation, no React runtime. The two-artefact split: the running app is the journey (the conversion arc you read here), the static site is the result (concept sheets people can actually read without waiting on a React bundle).
+3. **Publish the static counterpart at `vixenz.dev/atlas/`:** Astro MDX content collection using the same design tokens, parallel implementation, no React runtime. The two-artefact split: the running app is the journey (the conversion arc you read here), the static site is the result (concept sheets people can actually read without waiting on a React bundle).
 
-The case study you are reading right now will keep updating as those land. It is the journey made visible — what I built, why I built it that way, and where it is heading.
+The case study you are reading right now will keep updating as those land. It is the journey made visible: what I built, why I built it that way, and where it is heading.
