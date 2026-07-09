@@ -1,0 +1,54 @@
+---
+title: 'Kiwicom: a developer project discovery hub'
+summary: 'Final Dev Academy group project. Four-person team building a community hub for devs to find open-source projects. My role: git keeper.'
+status: 'shipped'
+started: '2026-06-01'
+updated: '2026-07-10'
+---
+
+{/* Repo: https://github.com/Oscar-Wakefield-Ngahuru-2026/Kiwicom (Oscar's org, not mine) */}
+{/* Team: Oscar (PO), Henry (Agile), Ivonne (Vibes), me (Git Keeper) */}
+{/* Stack: React + Vite + TS + Tailwind (client), Node + Express + TS (server), PostgreSQL (Supabase auth), Knex */}
+
+## The brief
+
+Kiwicom is a group project and the brain child of Oscar who had a wonderful idea for a Community Hub for post education grads like us who are just out of Bootcamp and Uni. It would be a place for us to contribute to open source projects, learn new languages and tech and meet and work with other devs. The project was a 6 day project. We planned the project out on Miro Board. We had it split into 2 sprints.
+
+## My role: git keeper
+
+My role for the group project was Git Keeper, I had done this role once before on another project but wanted to do it again as this was the role that I was least familiar with and wanted a chance to better understand. My role included reviewing PRs from the team, making sure nothing would conflict and if it did letting that team member know there was a conflict and that it needed to be resolved before I could merge. The team rule was that you cannot merge your own changes, which meant every piece of code got a second set of eyes before it landed. By the end of the project I had 79 commits, the highest on the team.
+
+## What we shipped
+
+- Browse
+- Login (Supabase GitHub OAuth)
+- Project pages
+- Bookmarks
+- Developer profiles
+- Create-project
+
+The GitHub integration ran through Octokit. We deliberately chose to use Supabase only for its hosted Postgres and its GitHub auth, not for its client library, so all data access went through Knex and Express. We wrote Vitest tests on both the server routes and the client components.
+
+I also created a playground branch where I could work on the CSS without it being pushed to main. I specifically called it playground so I would know it was never to be pushed, this allowed me free rein to try different concepts as well as use different React components from 21st dev in the design. I finally settled on my personal design scheme that I use in my personal projects which is: Lexend + JetBrains Mono (this is a specific choice for font as it is dyslexic friendly), cream and deep-sky palette, glass navbar, Wanaka-tree Hero, the scheme is a reusable frontend layer.
+
+## What we planned but didn't land
+
+We had planned a couple of features that unfortunately did not make it into the project, one being an AI integration for summaries of the Readme's of projects. Deployment, which will likely be Render. Showcasing projects, Showcase interests in a project, Lightning Talks and possibly Talk sign up. We also wanted to be able to add messaging as well, where you can message another Dev regarding their project or anything else having to do with coding.
+
+## The AI-gone-rogue weekend
+
+We had been given free rein to use AI in the build and some of us did. What none of us had done was put guardrails around it before we started, and that caught up with us the weekend before our deadline.
+
+I was running through my part of the codebase and something was off. Bits of code were not doing what I remembered them doing. I ran a full round of testing and the tests that had gone green when I raised my PR were now failing. Something in the AI-assisted parts had shifted and I was not sure what.
+
+I did not have time to figure out the story of what changed, I had a deadline. So I went back through my own code by hand, inspected every piece against what I remembered building, and worked out what needed to be reset back to what I actually knew was correct. It was slow and it was tedious and it was the last thing I wanted to be doing on a weekend that close to submission. But I sat with it and I got through it.
+
+The others on the team were doing the same thing separately on their own parts. I never found out exactly what had happened on their side, I just know we all spent time on the weekend that was not in the plan.
+
+The lesson has stuck with me: AI without guardrails is a liability. Since that weekend, when I work with Claude Code or any AI in a build, I write out what the AI is allowed to do before I let it start, and I check its output like a code reviewer not like a customer. I would rather ship less and know what shipped than ship more and hope it holds.
+
+We finished on time and what we delivered given the pivot was some of the strongest work I have been part of.
+
+## Where we're at
+
+The MVP that we had planned for is shipped, however the project is not deployed. This project has actually become a work in progress that we as a team would like to continue to work on. It will also possibly become an open source project that others can contribute to as well. It will be fun to see how this project develops over time.
