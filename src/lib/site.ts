@@ -3,7 +3,7 @@ export const site = {
   name: 'Serina McFall',
   brand: 'vixenz.dev',
   tagline:
-    'A junior developer building for everyone: accessibility-first, neurospicy, learning by writing it down.',
+    'Software Developer building for everyone: accessibility-first, neurospicy, learning by writing it down.',
   email: 'serina.mcfall@gmail.com',
   github: 'https://github.com/serina-mcfall',
   linkedin: 'https://linkedin.com/in/serinamcfall',

@@ -13,7 +13,7 @@ const { title, description = site.tagline, ogImage = '/og-default.png?v=2' } = A
 
 const fullTitle =
   title === site.name
-    ? `${site.name} · Junior Developer · Accessibility-First`
+    ? `${site.name} · Software Developer · Accessibility-First`
     : `${title} · ${site.name}`;
 
 const canonical = new URL(Astro.url.pathname, site.url);
@@ -53,7 +53,7 @@ const pageMode = isReadingPage ? 'reading' : 'default';
       url: site.url,
       email: `mailto:${site.email}`,
       sameAs: [site.github, site.linkedin],
-      jobTitle: 'Junior Developer',
+      jobTitle: 'Software Developer',
       knowsAbout: ['Accessibility', 'React', 'TypeScript', 'Express', 'Knex', 'SQL'],
     })} />
 
