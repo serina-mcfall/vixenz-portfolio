@@ -1,0 +1,19 @@
+---
+title: 'Where in the World? A geography detective game'
+summary: 'Full-stack Carmen Sandiego-inspired browser game. Real-world clues pulled from public APIs. Accessibility-first, one-week build.'
+status: 'idea'
+started: '2026-06-23'
+updated: '2026-07-13'
+---
+
+Where in the world is Carmen Sandiego? Let's build the answer. Full-stack, in the browser, playable by every kid.
+
+Strip this game down and it's a beautiful little state machine: no engine, no physics, just clean React. Every clue is real. We pull live data from public APIs (REST Countries, Wikipedia, OpenStreetMap, Open-Meteo) and turn the whole planet into a mystery: flags, currencies, weather, landmarks.
+
+Accessibility-first from day one: keyboard, screen reader, every kid. That's the differentiator.
+
+Stack: React + TypeScript on the front, Express/Node in the middle, Postgres (Supabase) behind it. Backend stores cases, tracks progress and a leaderboard, and proxies the public APIs. Every layer has a real job.
+
+One playable case shipped live is the MVP. More cases, custom art, sound, and a leaderboard: all stretch, none load-bearing.
+
+Full pitch, Q&A, and delivery notes in planning.
