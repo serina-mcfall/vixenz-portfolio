@@ -43,6 +43,8 @@ Half a day to rewrite the fetch layer. A small loss for a real win: the product 
 
 A second pivot came at deploy. Render's free tier runs Node, but my project is TypeScript with ESM, and the default `node` start command does not handle `.ts` on Node 22 without flags. I switched the start command to `tsx`. Three flags had to align: `NODE_ENV`, the build target, and the start runtime. The first deploy failed silently. The second worked. The third was the one I actually wanted.
 
+A quick note for anyone clicking through today: Render's free tier lets the server sleep after inactivity, so the first request may take around 30 seconds to wake it up. Everything after that responds normally. A move to Cloudflare Pages is on the roadmap; that will take the cold start out of the picture.
+
 These are not heroic stories. They are honest ones. Shipping under deadline pressure means making the call that gets you to a working product, then documenting the trade-off in the commit so the next person (often future-me) does not have to relitigate it.
 
 ## What's next
