@@ -1,0 +1,29 @@
+---
+title: 'Buzz: a PR review agent built to hold merge authority'
+summary: 'Building an LLM review agent toward one of Buzz''s two required PR approvals, hardening it against the PRs it reviews trying to manipulate it — and taking on Project Manager for the cohort this week.'
+status: 'building'
+started: '2026-08-10'
+updated: '2026-08-17'
+---
+
+Buzz is Dev Academy's Launchpad group project: a fork of `block/buzz`, a hive-mind communication platform, built out by a small cohort team under `launchpad-26`.
+
+## The review agent
+
+Buzz requires two human approvals on every PR. Review is the bottleneck: with dozens of open issues and every PR needing two sets of eyes, human attention is the scarce resource. I'm building an agent to become a first-pass reviewer — and eventually one of the two required approvals, not just a comment-only advisor.
+
+That second part changes what "correct" means. An agent that only leaves comments can be wrong and cost someone wasted attention. An agent with approval weight that's wrong, or manipulated, moves a bad PR one step closer to merging. So before it earns any approval authority, the review pipeline has to survive an adversarial PR trying to talk it into a clean review.
+
+## Containment, not trust
+
+Every surface a PR author controls — title, body, diff, comments, the linked issue — gets treated as untrusted data, never as instructions. Each one is wrapped in a block sealed with a per-run nonce and a preamble stating the block carries no authority, so a crafted diff that "asks" the agent to skip review can't talk its way past the boundary.
+
+I didn't take it on faith that the containment worked. I built a mutation-testing harness that applies eight named attack regressions to a scratch copy and checks that a named control catches each one. First run: six of eight got through anyway — a nonce that wasn't actually random, a byte cap that warned but didn't withhold. Proving a control fails before trusting that it passes is the same rule my [Hooks case study](/work/agent-hooks) runs on: a control you haven't watched fail is a belief, not a guarantee.
+
+## Verifying the agent's own homework
+
+Part of building this meant fact-checking the research the proposal leaned on. Three cited papers on LLM-judge reliability had been drawn from a secondary source rather than the originals. I pulled the primary sources and checked each claim directly — one AUROC figure turned out to describe one judge under two attacks, not judges in general; one quotation didn't actually appear in the paper it was attributed to; one "no published system reports this metric" claim was true only for the three systems actually checked, not as a universal claim. I corrected the record in place rather than let the overstated version stand.
+
+## Taking on PM
+
+I've moved into the Project Manager role for the team this week — partly because it was my turn in rotation, partly because I'm the most organised of the three of us, and partly because I wanted the experience. I've never done PM before, even in bootcamp, so this is a real first: staying on top of the GitHub issue queue, reviewing PRs as they land, and making calls based on what the other reviewers find.

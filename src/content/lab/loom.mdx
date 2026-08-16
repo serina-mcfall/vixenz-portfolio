@@ -1,0 +1,26 @@
+---
+title: 'Loom: watching a fleet of agents at a glance'
+summary: 'A local dashboard and Claude Code skill showing what a fleet of coding agents is doing across git worktrees: who is blocked, which PRs are waiting on a human, which worktrees are about to collide.'
+status: 'shipped'
+started: '2026-08-03'
+updated: '2026-08-16'
+repo: 'https://github.com/serina-mcfall/loom'
+---
+
+## Why it exists
+
+I had agents running in parallel across several worktrees of one repository, and their state was scattered across `git`, the GitHub API, tmux, and however many terminal windows I had open. Answering "is anything waiting on me" meant visiting each window in turn — an agent blocked on a permission prompt was invisible until I happened to look. I wanted to watch my fleet live instead of checking on it by hand.
+
+Loom makes the blocked ones loud and everything else quiet.
+
+## Two faces, one set of facts
+
+A browser dashboard I can leave open while I work, refreshing itself. And a Claude Code skill — `serina:loom` — that reads the same snapshot and answers "what should I pick up next" directly in chat. Both sit on top of one pure `collect` function that shells to `git` and `gh` and reads hook state, and returns a snapshot object rather than printing or rendering anything itself. That separation is why almost all the substantial tests live in one place.
+
+## Zero dependencies, on purpose
+
+Python 3.10+, standard library only — no pip install, no build step, no lockfile. Enforced in CI by a script that fails on any import it doesn't recognise, rather than trusting the constraint to hold on its own. The reasoning: Loom needs to drop into any repository without asking it to trust a dependency chain first, and "no third-party supply chain" is a claim a reader can check with one `ls` instead of taking my word for it.
+
+## Auditing my own build
+
+I ran a full-tree audit against the finished v1 — not a review of one change, a judgement of the whole thing against reality. 32 findings, zero Blockers, all resolved. Test count went from 200 to 283 in the process, and I said plainly that the audit was written by the same model family that built the code, with nobody independent grading it — so its most serious findings carry pasted execution output, specifically so they could be checked without trusting the auditor.

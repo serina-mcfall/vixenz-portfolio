@@ -6,7 +6,7 @@ import { site } from '../lib/site'
 <Page title="CV · Serina McFall" description="Curriculum vitae for Serina McFall: software developer, accessibility-first, Auckland-based.">
   <article class="cv">
     <p class="download-bar">
-      <a href="/serina-mcfall-cv.pdf" download="Serina McFall CV July 2026.pdf" class="download-btn">
+      <a href="/serina-mcfall-cv.pdf" download="Serina McFall CV August 2026.pdf" class="download-btn">
         Download CV (PDF)
       </a>
     </p>
@@ -18,7 +18,7 @@ import { site } from '../lib/site'
         <ul class="contact">
           <li><a href={site.url}>vixenz.dev</a></li>
           <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
-          <li><a href="tel:+64214672266">+64 21 467 266</a></li>
+          <li><a href="tel:+64214672266">+64 21 467 2266</a></li>
           <li><a href={site.github}>GitHub</a></li>
           <li><a href={site.linkedin}>LinkedIn</a></li>
           <li>{site.location}</li>
@@ -30,7 +30,7 @@ import { site } from '../lib/site'
 
  <section>
   <h2>Summary</h2>
-  <p>Software Developer. Shifted from nearly a decade in customer service to a career in tech via Dev Academy. Server-side gives structure to the part of my brain that needs it; the front end gives an outlet to my artistic side. I found the home I did not know I was looking for. Neurodivergent, and I've learned this is not a weakness but is in fact a strength I can use. It comes with empathy, active listening, and years of practice giving and receiving feedback, pairing on hard problems, and working through conflict without making it personal. I plan and doc before I write code, gate accessibility up front (WCAG 2.2 AA) on my own projects, and start Dev Academy's AI Launchpad on 27 July 2026.</p>
+  <p>Software Developer. Shifted from fifteen years in customer service to a career in tech via Dev Academy. Server-side gives structure to the part of my brain that needs it; the front end gives an outlet to my artistic side. I found the home I did not know I was looking for. Neurodivergent, and I've learned this is not a weakness but is in fact a strength I can use. It comes with empathy, active listening, and years of practice giving and receiving feedback, pairing on hard problems, and working through conflict without making it personal. I plan and doc before I write code, gate accessibility up front (WCAG 2.2 AA) on my own projects, and start Dev Academy's AI Launchpad on 27 July 2026.</p>
 </section>
 
 <section>
@@ -41,7 +41,17 @@ import { site } from '../lib/site'
     <p class="job-meta">Auckland, NZ (Hybrid) <span aria-hidden="true"> · </span> Apr 2026 to Present</p>
 
     <div class="role">
-      <h4>Software Developer <span class="role-dates">Apr 2026 to Present</span></h4>
+      <h4>AI Launchpad — Software Developer <span class="role-dates">Jul 2026 to Present</span></h4>
+      <ul>
+        <li>Building a PR review agent for launchpad-26/buzz toward one of its two required merge approvals; hardened the containment boundary against prompt injection with a mutation-testing harness, and fact-checked the research it was proposed on against primary sources.</li>
+        <li>Took on Project Manager for the 3-person Buzz team: triaging the GitHub issue queue, reviewing PRs as they land, and making merge calls from what other reviewers found.</li>
+        <li>Built Loom, a zero-dependency Python dashboard and Claude Code skill tracking a fleet of coding agents across git worktrees; audited my own build against reality and closed all 32 findings.</li>
+        <li>Published a case study after finding four of seven Claude Code hooks I had written — including the only security hook I had — had never fired once; documented the fix and two live defects rather than hide them.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <h4>Software Developer <span class="role-dates">Apr 2026 to Jul 2026</span></h4>
       <ul>
         <li>Shipped three solo projects: Moonlit Library (deployed on Render), Atlas (accessibility-first concept library reworked from the bootcamp brief), and vixenz.dev (portfolio site, Astro on Cloudflare Pages).</li>
         <li>Accessibility-first on every project: WCAG 2.2 AA audits before merge, keyboard navigation + ARIA + focus management wired in from the start. Gave cohort lightning talk on treating accessibility as a design decision, not decoration.</li>
@@ -140,6 +150,37 @@ import { site } from '../lib/site'
       <p><strong>Stack:</strong> Cloudflare Workers (planning to bind D1, KV, R2, Queues), TypeScript. Rest of the stack still to be decided.</p>
       <p><strong>Role:</strong> Co-built with my husband. Currently in doc-led planning phase.</p>
       <p><strong>Outcome:</strong> Long-term worldbuilding platform for writers, D&amp;D masters, and game writers. Doc-led planning phase: north-star vision, user flows, and multi-source encryption architecture research (Claude, ChatGPT, Gemini, Kimi, Deepseek) locked before implementation. Client-side E2EE is the technical anchor.</p>
+    </li>
+    <li>
+      <h3>Buzz: PR review agent</h3>
+      <p class="project-meta">
+        <a href={`${site.url}/lab/buzz`}>vixenz.dev/lab/buzz</a>
+        <span aria-hidden="true"> · </span>
+        <a href="https://github.com/launchpad-26/buzz">github.com/launchpad-26/buzz</a>
+      </p>
+      <p><strong>Stack:</strong> Rust (Buzz itself), Python (review-agent tooling), GitHub Actions</p>
+      <p><strong>Role:</strong> Built the review agent within a 3-person Dev Academy Launchpad cohort team; now Project Manager.</p>
+      <p><strong>Outcome:</strong> Building toward one of Buzz's two required PR approvals. Hardened the review pipeline against prompt injection with a containment boundary and a mutation-testing harness; fact-checked the research it was proposed on against primary sources.</p>
+    </li>
+    <li>
+      <h3>Loom</h3>
+      <p class="project-meta">
+        <a href={`${site.url}/lab/loom`}>vixenz.dev/lab/loom</a>
+        <span aria-hidden="true"> · </span>
+        <a href="https://github.com/serina-mcfall/loom">github.com/serina-mcfall/loom</a>
+      </p>
+      <p><strong>Stack:</strong> Python, standard library only, zero dependencies</p>
+      <p><strong>Role:</strong> Solo build</p>
+      <p><strong>Outcome:</strong> Local dashboard and Claude Code skill tracking a fleet of coding agents across git worktrees. Self-audited against the finished build, closed all 32 findings, 283 tests, CI across four Python versions.</p>
+    </li>
+    <li>
+      <h3>serina-skills</h3>
+      <p class="project-meta">
+        <a href="https://github.com/serina-mcfall/serina-skills">github.com/serina-mcfall/serina-skills</a>
+      </p>
+      <p><strong>Stack:</strong> Shell, Claude Code plugin/skill format</p>
+      <p><strong>Role:</strong> Solo build, actively maintained</p>
+      <p><strong>Outcome:</strong> An 11-skill Claude Code plugin marketplace: planning, research, retrospectives, and a 6-stage adversarial code-review pipeline. In active use across my own projects.</p>
     </li>
   </ul>
 </section>

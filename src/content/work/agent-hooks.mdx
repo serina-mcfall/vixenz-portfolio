@@ -1,0 +1,58 @@
+---
+title: 'Agent Hooks: a gate that never fired'
+ord: 'V'
+summary: 'Four of seven Claude Code hooks I had written had never fired once — not disabled, not misconfigured, structurally incapable of reading their own input. Here is the two-character grep that found it, and the six-for-six lesson about trusting what you read instead of what you run.'
+status: 'live'
+repo: 'https://github.com/serina-mcfall/agent-hooks-case-study'
+updated: '2026-08-05'
+---
+
+## The incident
+
+On 2026-07-27 I ran a recursive grep across some local config files, checking whether a status line had saved. The pattern was `5h`. Two characters.
+
+It matched base64 text inside a credentials file, and printed a live access token, valid for ten days, into a stored transcript that routes through an organisation. It needed rotating, and revoking server-side, because generating a new key does not invalidate the old one.
+
+The rule against reading credential files already existed. It wasn't ignored. It was followed, by someone whose two-character search pattern happened to match a JWT.
+
+> A regex does not inherit the intent of the person who wrote it.
+
+## The response, and the bug
+
+An instruction asks. A hook enforces. So: a `PreToolUse` hook on `Bash`, blocking destructive git operations. It looked like this, and this is the whole bug:
+
+```bash
+INPUT=$(cat /dev/stdin)
+```
+
+Installed. Enabled. Correctly written. Tested by hand and passing. In a live session, `git branch -D` ran anyway. So did `reset --hard`. The hook had never blocked anything in its life. Three more hooks shared the same line, including the only security hook on the machine.
+
+## The mechanism
+
+Claude Code delivers hook payloads on a socket, not a pipe. A socket cannot be opened by path. Think of it as a phone call: a pipe is a phone number you can hang up and redial; a socket is a call already connected, no number to dial again. `cat` talks on the line it was handed. `cat /dev/stdin` hangs up and looks for a number that doesn't exist.
+
+Three things had to align for the failure to stay silent, and any one of them would have exposed it: the error went to stderr while `$(...)` only captures stdout, there was no `set -e`, and an empty payload took the "nothing to do" branch, which exits `0`, which means allow.
+
+> When it broke, it permitted.
+
+## Why every test passed
+
+Testing the hook by hand — piping input in — passed every time, because a pipe can be opened by path, only a socket cannot. The test environment differed from production in exactly the one way that mattered, so the test wasn't merely useless. It was actively reassuring, the same way pressing a smoke alarm's test button proves the button works and tells you nothing about the sensor.
+
+## The category, not the incident
+
+This wasn't one bug. The same shape — code that cannot tell what happened and quietly resolves to *permit* — showed up five times in unrelated code. Two instances are still live in the repo today, documented rather than fixed, because a case study about trusting what you verify over what you read shouldn't quietly clean up its own mess first.
+
+## What generalises
+
+1. An instruction asks. A hook enforces — but check whether your harness already enforces it natively before writing one. A native rule can't be dead for months; a hook can.
+2. Run the negative control. Do the dangerous thing, and watch it get stopped. Config is not evidence.
+3. Decide what your check does when it cannot decide, then make sure the exit code agrees with the words.
+4. A test that cannot fail is not a test. Prove it fails before trusting that it passes.
+5. Warn loudly on absence. This hid for months because failure was quiet and looked exactly like success.
+
+## The postscript
+
+Every claim in the talk this became was checked by running it rather than reading it. Six of them were wrong — the hook count, where the regex actually lived, whether the stamp file landed where I thought, whether a fixture even existed. A case study arguing that you must run the negative control, whose own first draft was wrong in six places until I ran it. Not an embarrassing footnote. The strongest evidence in the whole repo.
+
+This frame — instruction, harness, sandbox, weakest to strongest — is [Jeff's *Security Primer for Agentic Coding*](https://github.com/launchpad-26/jeffs-security-primer): his vocabulary, my case study. His sharpest criticism of this repo stands too: check whether your harness already has a native control before you write a hook. A native rule could not have been dead for months. Mine was.
