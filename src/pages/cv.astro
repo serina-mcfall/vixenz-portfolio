@@ -663,8 +663,8 @@ import { site } from '../lib/site'
     :global(body) {
       background: white !important;
       color: black !important;
-      font-size: 8pt;
-      line-height: 1.28;
+      font-size: 10pt;
+      line-height: 1.5;
     }
     @page {
       margin: 10mm 12mm;
@@ -687,27 +687,44 @@ import { site } from '../lib/site'
       max-width: 100%;
     }
     .cv-layout {
-      grid-template-columns: 11rem 1fr;
-      gap: 1.25rem;
+      display: block;
+    }
+    .cv-sidebar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      column-gap: 1.25rem;
+      row-gap: 0.15rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.7rem;
     }
     .cv-sidebar h1 {
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       color: #1a1a1a;
-      margin-bottom: 0.25rem;
+      margin: 0;
     }
     .cv-sidebar .role {
       color: #333;
       font-size: 9pt;
-      margin-bottom: 0.15rem;
+      margin: 0;
     }
     .cv-sidebar .role-sub {
       color: #444;
       font-size: 7.5pt;
-      margin-bottom: 0.7rem;
+      margin: 0;
     }
     .cv-sidebar .contact {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 0.15rem 0;
       font-size: 8pt;
-      gap: 0.15rem;
+    }
+    .cv-sidebar .contact li:not(:last-child)::after {
+      content: "·";
+      color: #444;
+      margin: 0 0.6rem;
     }
     .cv-sidebar .contact a {
       color: #1a1a1a;
@@ -731,34 +748,33 @@ import { site } from '../lib/site'
       font-size: 8.5pt;
     }
     .cv section {
-      margin: 0.3rem 0;
-      page-break-inside: avoid;
+      margin: 0.6rem 0;
     }
     .cv h2 {
-      margin-bottom: 0.15rem;
-      font-size: 8pt;
+      margin-bottom: 0.3rem;
+      font-size: 9pt;
     }
     .cv .projects, .cv .other {
-      gap: 0.3rem;
+      gap: 0.55rem;
     }
     .cv .projects li {
       page-break-inside: avoid;
     }
     .cv .projects h3 {
-      font-size: 0.85rem;
-      margin-bottom: 0.05rem;
+      font-size: 0.95rem;
+      margin-bottom: 0.12rem;
     }
     .cv .project-meta {
       color: #444;
-      margin-bottom: 0.1rem;
-      font-size: 7.5pt;
+      margin-bottom: 0.18rem;
+      font-size: 8.5pt;
     }
     .cv .projects p {
-      margin-bottom: 0.05rem;
+      margin-bottom: 0.12rem;
     }
     .cv .projects strong {
       color: #444;
-      font-size: 6.5pt;
+      font-size: 7.5pt;
     }
     .cv .projects li p:nth-child(3),
     .cv .projects li p:nth-child(4) {
@@ -774,34 +790,34 @@ import { site } from '../lib/site'
       margin-top: 0.15rem;
     }
     .cv .job {
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.65rem;
       page-break-inside: avoid;
     }
     .cv .job h3 {
-      font-size: 0.9rem;
-      margin-bottom: 0.05rem;
+      font-size: 1rem;
+      margin-bottom: 0.12rem;
     }
     .cv .job-meta {
       color: #444;
-      margin-bottom: 0.15rem;
-      font-size: 7.5pt;
+      margin-bottom: 0.28rem;
+      font-size: 8.5pt;
     }
     .cv .role {
-      margin-bottom: 0.2rem;
-      padding-left: 0.35rem;
+      margin-bottom: 0.45rem;
+      padding-left: 0.55rem;
       border-left-color: #ccc;
     }
     .cv .role h4 {
-      font-size: 0.85rem;
-      margin-bottom: 0.05rem;
+      font-size: 0.95rem;
+      margin-bottom: 0.12rem;
       gap: 0.3rem;
     }
     .cv .role-dates {
       color: #444;
-      font-size: 7.5pt;
+      font-size: 8.5pt;
     }
     .cv .role ul {
-      gap: 0.05rem;
+      gap: 0.18rem;
     }
     .cv .role li {
       padding-left: 0.6rem;
@@ -819,23 +835,23 @@ import { site } from '../lib/site'
       color: #444;
     }
     .cv .edu {
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.4rem;
       page-break-inside: avoid;
     }
     .cv .edu h3 {
-      font-size: 0.85rem;
-      margin-bottom: 0.02rem;
+      font-size: 0.95rem;
+      margin-bottom: 0.1rem;
     }
     .cv .edu-meta {
       color: #444;
-      margin-bottom: 0.05rem;
-      font-size: 7.5pt;
+      margin-bottom: 0.12rem;
+      font-size: 8.5pt;
     }
     .cv .edu p:last-child {
       margin: 0;
     }
     .cv p {
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.35rem;
     }
     .cv p:last-child {
       margin-bottom: 0;
@@ -858,15 +874,15 @@ import { site } from '../lib/site'
       color: #444;
     }
     .cv dl {
-      gap: 0.3rem;
+      gap: 0.55rem;
     }
     .cv dl div {
       grid-template-columns: 1fr;
-      gap: 0.1rem;
+      gap: 0.18rem;
     }
     .cv dt {
-      font-size: 7pt;
-      margin-bottom: 0.1rem;
+      font-size: 8pt;
+      margin-bottom: 0.18rem;
     }
   }
 
