@@ -39,7 +39,14 @@ await page.pdf({
   path: OUT,
   format: 'A4',
   printBackground: true,
-  margin: { top: '15mm', bottom: '15mm', left: '15mm', right: '15mm' },
+  margin: { top: '15mm', bottom: '20mm', left: '15mm', right: '15mm' },
+  displayHeaderFooter: true,
+  headerTemplate: '<span></span>',
+  footerTemplate: `
+    <div style="width:100%; font-size:7.5px; color:#666; text-align:center; padding:0 15mm; font-family:Arial, sans-serif;">
+      Serina McFall &middot; serina.mcfall@gmail.com
+    </div>
+  `,
 })
 
 await browser.close()
