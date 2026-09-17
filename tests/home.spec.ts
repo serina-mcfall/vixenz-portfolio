@@ -18,10 +18,10 @@ test.describe('home page @a11y', () => {
     expect(focused).toContain('Skip to content')
   })
 
-  test('all three case-study tiles render', async ({ page }) => {
+  test('all six case-study tiles render', async ({ page }) => {
     await page.goto('/')
     const tiles = page.locator('a.tile')
-    await expect(tiles).toHaveCount(3)
+    await expect(tiles).toHaveCount(6)
   })
 
   test('no axe-detectable a11y violations', async ({ page }) => {
