@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { site } from '../lib/site';
+import { ogDefault } from '../lib/og';
 import Atmosphere from '../components/Atmosphere.astro';
 
 interface Props {
@@ -9,7 +10,7 @@ interface Props {
   ogImage?: string;
 }
 
-const { title, description = site.tagline, ogImage = '/og-default.png?v=2' } = Astro.props;
+const { title, description = site.tagline, ogImage = ogDefault } = Astro.props;
 
 const fullTitle =
   title === site.name
