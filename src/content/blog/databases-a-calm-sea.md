@@ -41,7 +41,7 @@ Migrations explore. Seeds anchor. Together they are the journey of the data laye
 
 ## By hand: and why
 
-I picked Express + Knex + SQLite for Atlas and the Avalúne Compendium. No ORM. No managed service. Hand-rolled queries, hand-written migrations, hand-authored seeds.
+I picked Express + Knex + SQLite for Atlas and the Caladryn Compendium. No ORM. No managed service. Hand-rolled queries, hand-written migrations, hand-authored seeds.
 
 I could have grabbed Supabase or Prisma and shipped faster. I did not, for a specific reason: I wanted to learn it from the ground up. Mistakes and errors and tantrums and all.
 
