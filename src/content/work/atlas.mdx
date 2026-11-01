@@ -25,7 +25,7 @@ What changed was the shape, not the stack. Artwork became Concept. Image URL bec
 
 I am at my happiest in the schema layer. There is something about getting the model right at the start that makes everything downstream easier.
 
-Atlas's data layer is written by hand: Express + Knex + SQLite. No ORM magic. The reason is the same reason I started the Avalúne Compendium: Supabase hides the relational workflow from me, and I want to learn it by wiring it up.
+Atlas's data layer is written by hand: Express + Knex + SQLite. No ORM magic. The reason is the same reason I started the Caladryn Compendium: Supabase hides the relational workflow from me, and I want to learn it by wiring it up.
 
 The schema is small but earns each table. Concepts, topics, tags, concept-tag joins, related-concept edges. Each table passes the drawer test: one row per instance, looked up one at a time, linked to from other records. Things that fail the test (like a concept's summary or explanation) stay as flat fields on the concept row.
 

@@ -57,7 +57,7 @@ Next time, I want to plan the CSS the way I plan the schema: slowly, deliberatel
 
 ## Where I am heading
 
-My heart lays in the server side. Databases, migrations, seeds, the relational workflow: that is where I am happiest. I have known this since the Avalúne Compendium track.
+My heart lays in the server side. Databases, migrations, seeds, the relational workflow: that is where I am happiest. I have known this since the Caladryn Compendium track.
 
 But the UI is a magic place to be, full of so much potential. CSS is the part of frontend development where I see the most of myself: the artist, the pattern-watcher, the slow careful reader who notices when a layout is off by 2 pixels and won't let it go.
 
