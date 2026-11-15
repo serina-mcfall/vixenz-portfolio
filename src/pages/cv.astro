@@ -30,18 +30,33 @@ import { site } from '../lib/site'
 
  <section>
   <h2>Summary</h2>
-  <p>Software Developer. Shifted from fifteen years in customer service to a career in tech via Dev Academy. Server-side gives structure to the part of my brain that needs it; the front end gives an outlet to my artistic side. I found the home I did not know I was looking for. Neurodivergent, and I've learned this is not a weakness but is in fact a strength I can use. It comes with empathy, active listening, and years of practice giving and receiving feedback, pairing on hard problems, and working through conflict without making it personal. I plan and doc before I write code, gate accessibility up front (WCAG 2.2 AA) on my own projects, and am currently on Dev Academy's AI Launchpad, where my work has been on the guardrails for agentic development rather than the prompts.</p>
+  <p>Software Developer, currently on industry placement at Westpac New Zealand as a Forward Deployment Engineering Intern, working out what undocumented internal systems actually do and mapping them so the teams who rely on them can decide what to do next. Shifted from fifteen years in customer service to a career in tech via Dev Academy; server-side gives structure to the part of my brain that needs it, the front end gives an outlet to my artistic side, and I found the home I did not know I was looking for. Neurodivergent, and I've learned this is not a weakness but is in fact a strength I can use — it comes with empathy, active listening, and years of practice giving and receiving feedback, pairing on hard problems, and working through conflict without making it personal. I plan and doc before I write code, gate accessibility up front (WCAG 2.2 AA) on my own projects, and on Dev Academy's AI Launchpad, which I finished in November, my work was on the guardrails for agentic development rather than the prompts.</p>
 </section>
 
 <section>
   <h2>Experience</h2>
 
   <article class="job">
-    <h3>Dev Academy Aotearoa</h3>
-    <p class="job-meta">Auckland, NZ (Hybrid) <span aria-hidden="true"> · </span> Apr 2026 to Present</p>
+    <h3>Westpac New Zealand</h3>
+    <p class="job-meta">Auckland, NZ <span aria-hidden="true"> · </span> Oct 2026 to Present</p>
 
     <div class="role">
-      <h4>AI Launchpad — Software Developer <span class="role-dates">Jul 2026 to Present</span></h4>
+      <h4>Forward Deployment Engineering Intern, Digital Tech <span class="role-dates">Dev Academy AI Launchpad industry placement</span></h4>
+      <ul>
+        <li>Mapped undocumented internal systems across three business units — Voice of Customer, Westpac Business and Customer Services — producing maps and reports that gave non-technical teams the information to decide what to do next. Dozens of files per system, roughly a week per engagement.</li>
+        <li>Found that automating the Westpac Business email inbox was not possible within Westpac's own restrictions and Copilot 365's, and identified applying for an Agent for Automation as the route forward.</li>
+        <li>Worked separately from a second analyst on the same systems so conclusions could be compared independently — we consistently reached the same findings.</li>
+        <li>Used GitHub Copilot in VS Code to map files, verifying its output against source after finding the maps incomplete, context-limited and at times confidently wrong.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="job">
+    <h3>Dev Academy Aotearoa</h3>
+    <p class="job-meta">Auckland, NZ (Hybrid) <span aria-hidden="true"> · </span> Apr 2026 to Nov 2026</p>
+
+    <div class="role">
+      <h4>AI Launchpad — Software Developer <span class="role-dates">Jul 2026 to Nov 2026</span></h4>
       <ul>
         <li>Owned the documentation corpus for launchpad-26/buzz, an open-source hive-mind communication platform: 233 files covering architecture, schema, standards, capabilities and agent definitions, across 30 merged pull requests.</li>
         <li>Built The Professor out of that work, a skill that creates documentation, maintains it and vets it in one pass — automating the whole loop rather than just the first draft.</li>
@@ -95,6 +110,15 @@ import { site } from '../lib/site'
   <h2>Projects</h2>
   <ul class="projects">
     <li>
+      <h3>24-hour multi-model agent experiment</h3>
+      <p class="project-meta">
+        <span class="deploy-note">private repo, available on request</span>
+      </p>
+      <p><strong>Stack:</strong> Python (deterministic supervisor, ledger, watchdog), Claude, Codex, Grok, git worktrees</p>
+      <p><strong>Role:</strong> Solo design and run</p>
+      <p><strong>Outcome:</strong> Designed and ran a constrained 24-hour experiment asking whether a cost-aware, multi-model agent organisation could deploy itself from one prompt and deliver a predefined MVP without losing scope, quality, accessibility or review independence. Codex reviewed independently of the Claude builders, and a deterministic Python supervisor executed every merge so that no model could approve its own work. The apparatus ran its full window and froze on schedule to the second, across 290 ledger entries and 44 observer reports — which is not the same claim as the build succeeding. It recorded its own defects: a deadlock at T+0.44h, a watchdog failure, and two protocol deviations logged unapproved.</p>
+    </li>
+    <li>
       <h3>Moonlit Library</h3>
       <p class="project-meta">
         <a href="https://moonlit-library.onrender.com">moonlit-library.onrender.com</a>
@@ -128,17 +152,6 @@ import { site } from '../lib/site'
       <p><strong>Outcome:</strong> Final Dev Academy group project. Community hub for devs to find open-source projects: GitHub pulls filtered by language/topic, bookmarks, profiles, create-project. Editorial design system (Lexend + JetBrains Mono, cream and deep-sky) from my aesthetic. Claude-powered summaries + deployment planned but did not land in time.</p>
     </li>
     <li>
-      <h3>Realmstack</h3>
-      <p class="project-meta">
-        <span class="deploy-note">not deployed</span>
-        <span aria-hidden="true"> · </span>
-        <span class="deploy-note">private repo, available on request</span>
-      </p>
-      <p><strong>Stack:</strong> Cloudflare Workers (planning to bind D1, KV, R2, Queues), TypeScript. Rest of the stack still to be decided.</p>
-      <p><strong>Role:</strong> Co-built with my husband. Currently in doc-led planning phase.</p>
-      <p><strong>Outcome:</strong> Long-term worldbuilding platform for writers, D&amp;D masters, and game writers. Doc-led planning phase: north-star vision, user flows, and multi-source encryption architecture research (Claude, ChatGPT, Gemini, Kimi, Deepseek) locked before implementation. Client-side E2EE is the technical anchor.</p>
-    </li>
-    <li>
       <h3>Buzz: documentation corpus and review tooling</h3>
       <p class="project-meta">
         <a href={`${site.url}/lab/buzz`}>vixenz.dev/lab/buzz</a>
@@ -161,22 +174,15 @@ import { site } from '../lib/site'
       <p><strong>Outcome:</strong> Local dashboard and Claude Code skill tracking a fleet of coding agents across git worktrees. Self-audited against the finished build, closed all 32 findings, 283 tests, CI across four Python versions.</p>
     </li>
     <li>
-      <h3>agent-verification-kit</h3>
+      <h3>Agentic engineering toolkit: agent-verification-kit and serina-skills</h3>
       <p class="project-meta">
         <a href="https://github.com/serina-mcfall/agent-verification-kit">github.com/serina-mcfall/agent-verification-kit</a>
+        <span aria-hidden="true"> · </span>
+        <span class="deploy-note">serina-skills private, available on request</span>
       </p>
-      <p><strong>Stack:</strong> Shell, Claude Code hooks and skills</p>
-      <p><strong>Role:</strong> Solo build, actively maintained</p>
-      <p><strong>Outcome:</strong> Test automation and verification for agentic coding, across 24 merged pull requests. Ships hooks, not only skills — a skill is advice, a hook is a gate. Grew out of the test automation work started on Buzz and now runs on any project.</p>
-    </li>
-    <li>
-      <h3>serina-skills</h3>
-      <p class="project-meta">
-        <span class="deploy-note">private repo, available on request</span>
-      </p>
-      <p><strong>Stack:</strong> Shell, Claude Code plugin/skill format</p>
-      <p><strong>Role:</strong> Solo build, actively maintained</p>
-      <p><strong>Outcome:</strong> A 43-skill Claude Code plugin marketplace: planning, research, retrospectives, and a 6-stage adversarial code-review pipeline with its own merge gate. 31 written by me; 12 adapted from a colleague's library, credited. In active use across every project I work on.</p>
+      <p><strong>Stack:</strong> Shell, Claude Code hooks, skills and plugin format</p>
+      <p><strong>Role:</strong> Solo builds, both actively maintained</p>
+      <p><strong>Outcome:</strong> Two tools that came out of the Buzz work and now run on every project I touch. agent-verification-kit is test automation and verification for agentic coding, across 24 merged pull requests; it ships hooks, not only skills, because a skill is advice and a hook is a gate. serina-skills is a 43-skill plugin marketplace — planning, research, retrospectives, and a 6-stage adversarial code-review pipeline with its own merge gate; 31 written by me, 12 adapted from a colleague's library and credited.</p>
     </li>
   </ul>
 </section>
@@ -236,7 +242,7 @@ import { site } from '../lib/site'
     <h3>Dev Academy Aotearoa</h3>
     <p class="edu-meta">Auckland, NZ <span aria-hidden="true"> · </span> 2026</p>
     <p>Full-stack web development bootcamp + AI Launchpad.</p>
-    <p>New Zealand Certificate in Applied Digital Technology (Level 6) — in progress, due November 2026.</p>
+    <p>New Zealand Certificate in Applied Digital Technology (Level 6) — completed November 2026, results pending.</p>
   </article>
 
   <article class="edu">
