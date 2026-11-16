@@ -141,15 +141,15 @@ import { site } from '../lib/site'
       <p><strong>Outcome:</strong> Reworked a Dev Academy art-gallery brief into an accessibility-first concept library with kind-based routing. WCAG 2.2 AA gated in Playwright tests. Four concept sheets and a Terminal reference sheet shipped.</p>
     </li>
     <li>
-      <h3>Kiwicom: a developer project discovery hub</h3>
+      <h3>Journey Builder</h3>
       <p class="project-meta">
-        <span class="deploy-note">not yet deployed</span>
+        <span class="deploy-note">design stage</span>
         <span aria-hidden="true"> · </span>
-        <a href="https://github.com/serina-mcfall/Kiwicom">github.com/serina-mcfall/Kiwicom</a>
+        <span class="deploy-note">private repo, available on request</span>
       </p>
-      <p><strong>Stack:</strong> React + Vite + TS + Tailwind, Node + Express + TS, PostgreSQL (Supabase auth), Knex</p>
-      <p><strong>Role:</strong> My role in this project was the git keeper of a 4-person team. I reviewed every PR, ran merges to Dev, and Resolved conflicts when they came about (luckily there were not many). 79 commits by the end, highest on the team.</p>
-      <p><strong>Outcome:</strong> Final Dev Academy group project. Community hub for devs to find open-source projects: GitHub pulls filtered by language/topic, bookmarks, profiles, create-project. Editorial design system (Lexend + JetBrains Mono, cream and deep-sky) from my aesthetic. Claude-powered summaries + deployment planned but did not land in time.</p>
+      <p><strong>Stack:</strong> TypeScript and Node, local-first. Dependency set pinned to zod, ajv, ajv-formats and json-canonicalize.</p>
+      <p><strong>Role:</strong> Solo build, currently at design-contract stage</p>
+      <p><strong>Outcome:</strong> A local-first application held deliberately at the design stage: three architecture decision records, and six conformance gates that must pass before the design contract freezes and implementation is allowed to begin. None has passed yet, and the repository says so. The one completed workstream is the dependency set — four direct packages, eight including transitives, pinned to exact versions with no ranges and no overrides, security-reviewed, verified to install reproducibly, and recorded with the lockfile's SHA-256. Working out what has to be true before building is the work.</p>
     </li>
     <li>
       <h3>Buzz: documentation corpus and review tooling</h3>
@@ -858,6 +858,7 @@ import { site } from '../lib/site'
     }
     .cv p {
       margin-bottom: 0.45rem;
+      max-width: none;
     }
     .cv p:last-child {
       margin-bottom: 0;
